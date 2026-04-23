@@ -1,0 +1,24 @@
+/* 响应式断点：笔记本(≤992px) / 平板(≤768px) */
+@media (max-width: 992px) {
+  .hero-intro h1 { font-size: 2.25rem; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 320px; }
+}
+
+@media (max-width: 768px) {
+  .navbar { height: 64px; }
+  .nav-links {
+    position: fixed; top: 64px; left: 0; right: 0; background: var(--white);
+    flex-direction: column; align-items: center; padding: 2rem 0; gap: 1.5rem;
+    transform: translateY(-100%); opacity: 0; pointer-events: none;
+    transition: var(--transition); box-shadow: var(--shadow-md); z-index: 90;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .mobile-toggle { display: flex; }
+  .mobile-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+  .mobile-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .carousel-section { aspect-ratio: 4/3; margin: 0 1rem 3rem; }
+  .hero-intro { padding: 3rem 0 1.5rem; }
+  .cta-section { padding: 3rem 0 2rem; }
+}
