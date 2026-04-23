@@ -1,0 +1,126 @@
+/* Base Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+}
+
+/* Container Styling */
+.registration-container {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid #333;
+    padding: 3rem 4rem;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.brand-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    color: #d4af37; /* Premium Gold Accent */
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.brand-header p {
+    font-size: 0.85rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+/* Form Input Styling */
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1rem;
+    color: #777;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+/* Floating Label Effect */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -18px;
+    font-size: 0.75rem;
+    color: #d4af37;
+}
+
+.input-group input:focus {
+    border-bottom: 1px solid #d4af37;
+    box-shadow: 0 1px 0 0 #d4af37;
+}
+
+/* Error Message Styling */
+.error-message {
+    display: none;
+    color: #ff4c4c;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    position: absolute;
+}
+
+/* Show error when input is invalid AND has been touched (handled via JS 'was-validated' class) */
+.was-validated input:invalid {
+    border-bottom: 1px solid #ff4c4c;
+}
+.was-validated input:invalid ~ .error-message {
+    display: block;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}

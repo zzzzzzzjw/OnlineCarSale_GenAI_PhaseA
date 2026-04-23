@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Luxury Motors | Exclusive Membership</title>
+        <link rel="stylesheet" href="../css/seller-registration.css">
+    </head>
+    <body>
+
+        <div class="registration-container">
+            <div class="brand-header">
+                <h1>LUXURY MOTORS</h1>
+                <p>Join the elite. Register for exclusive access.</p>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <div class="input-group">
+                    <input type="text" id="fullName" name="fullName" required 
+                        pattern="^[A-Za-z\s]+$" 
+                        title="Only alphabetic characters and spaces are allowed.">
+                    <label for="fullName">Full Name</label>
+                    <span class="error-message">Please enter a valid name (letters and spaces only).</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="address" name="address" required 
+                        pattern="^[A-Za-z0-9\s]+$" 
+                        title="Only alphanumeric characters and spaces are allowed.">
+                    <label for="address">Address</label>
+                    <span class="error-message">Please enter a valid address (alphanumeric and spaces only).</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" required 
+                        pattern="^1[3-9]\d{9}$" 
+                        title="Must be a valid 11-digit Chinese mainland phone number.">
+                    <label for="phone">Phone Number</label>
+                    <span class="error-message">Must be a valid 11-digit mainland China number (e.g., 13800138000).</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required 
+                        pattern="^[^@\s]+@[^@\s]+\.(com|cn)$" 
+                        title="Must contain exactly one @ and end with .com or .cn.">
+                    <label for="email">Email Address</label>
+                    <span class="error-message">Must contain exactly one '@' and end with .com or .cn.</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="username" name="username" required 
+                        pattern="^[A-Za-z0-9]{6,}$" 
+                        title="Must consist of at least 6 alphanumeric characters.">
+                    <label for="username">Username</label>
+                    <span class="error-message">Username must be at least 6 alphanumeric characters.</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" name="password" required 
+                        pattern="^[A-Za-z0-9]{6,}$" 
+                        title="Must consist of at least 6 alphanumeric characters.">
+                    <label for="password">Password</label>
+                    <span class="error-message">Password must be at least 6 alphanumeric characters.</span>
+                </div>
+
+                <button type="submit" class="submit-btn">REQUEST ACCESS</button>
+            </form>
+        </div>
+
+        <script src="../js/seller-registration.js"></script>
+    </body>
+</html>
