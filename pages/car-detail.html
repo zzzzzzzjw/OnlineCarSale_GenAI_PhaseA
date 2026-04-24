@@ -1,315 +1,263 @@
-/* Car Detail Page Styles */
-
-/* Detail Container */
-.detail-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
-}
-
-/* Breadcrumb */
-.breadcrumb {
-    margin-bottom: 1.5rem;
-    font-size: 0.85rem;
-    color: var(--gray);
-}
-
-.breadcrumb a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-.breadcrumb span {
-    margin: 0 0.5rem;
-}
-
-/* Main Detail Layout */
-.detail-grid {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 2rem;
-}
-
-/* Image Gallery */
-.gallery-section {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-
-.main-image {
-    width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    background: var(--gray-light);
-}
-
-.thumbnail-list {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem;
-    overflow-x: auto;
-}
-
-.thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: var(--transition);
-}
-
-.thumbnail:hover,
-.thumbnail.active {
-    border-color: var(--primary);
-}
-
-/* Car Info */
-.info-section {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.car-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.car-price {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.car-price small {
-    font-size: 0.9rem;
-    font-weight: normal;
-    color: var(--gray);
-}
-
-/* Specs Grid */
-.specs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
-    padding: 1rem 0;
-    border-top: 1px solid var(--gray-light);
-    border-bottom: 1px solid var(--gray-light);
-}
-
-.spec-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.spec-label {
-    color: var(--gray);
-    font-size: 0.85rem;
-}
-
-.spec-value {
-    font-weight: 600;
-    color: var(--dark);
-}
-
-/* Description */
-.description-section {
-    margin: 1.5rem 0;
-}
-
-.description-section h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-}
-
-.description-section p {
-    color: var(--gray);
-    line-height: 1.6;
-    font-size: 0.9rem;
-}
-
-/* Seller Info */
-.seller-card {
-    background: #f8fafc;
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    margin: 1.5rem 0;
-}
-
-.seller-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.seller-info {
-    margin-bottom: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--gray);
-}
-
-/* Action Buttons */
-.action-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.action-buttons .btn {
-    flex: 1;
-    text-align: center;
-}
-
-/* Back Button */
-.back-button {
-    margin-bottom: 1rem;
-}
-
-.back-button .btn-secondary {
-    background: transparent;
-    border: 1px solid var(--gray-light);
-    padding: 0.5rem 1rem;
-}
-
-/* Related Cars */
-.related-section {
-    margin-top: 3rem;
-}
-
-.related-section h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.related-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .detail-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Car Detail - AutoHub</title>
     
-    .car-title {
-        font-size: 1.25rem;
-    }
-    
-    .car-price {
-        font-size: 1.5rem;
-    }
-    
-    .specs-grid {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-    }
-    
-    .thumbnail {
-        width: 60px;
-        height: 60px;
-    }
-}
-/* 补充样式 */
-.logo-img {
-    height: 40px;
-    width: auto;
-}
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/car-detail.css">
+</head>
+<body>
 
-@media (max-width: 768px) {
-    .logo-img {
-        height: 32px;
-    }
-}
+    <header class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="../images/logo.png" alt="AutoHub" class="logo-img">
+                    <span>Auto<span style="color: var(--primary);">Hub</span></span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="search.html">Find Cars</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-.toast {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--dark);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: var(--shadow-lg);
-    z-index: 1000;
-    animation: slideInRight 0.3s ease;
-    font-size: 0.9rem;
-}
+    <main>
+        <div class="detail-container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="search.html">Find Cars</a>
+                <span>/</span>
+                <span id="breadcrumbTitle">Car Details</span>
+            </div>
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+            <div class="detail-grid" id="detailContent">
+                <div style="text-align: center; padding: 4rem;">Loading car details...</div>
+            </div>
 
-.btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-}
+            <div class="related-section" id="relatedSection" style="display: none;">
+                <h2>You May Also Like</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </div>
+    </main>
 
-.related-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-}
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 AutoHub. Professional Used Car Platform</p>
+        </div>
+    </footer>
 
-.related-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
+    <script>
+        (function() {
+            // 获取 URL 中的车辆 ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const carId = urlParams.get('id');
 
-.related-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
+            if (!carId) {
+                document.getElementById('detailContent').innerHTML = `
+                    <div style="text-align: center; padding: 4rem; grid-column: 1/-1;">
+                        <h3>No car selected</h3>
+                        <p>Please go back to the search page and select a car.</p>
+                        <a href="search.html" class="btn btn-primary">Browse Cars</a>
+                    </div>
+                `;
+                return;
+            }
 
-.related-card-info {
-    padding: 1rem;
-}
+            // 获取图片路径（兼容多种格式）
+            function getCarImage(car) {
+                if (car.images && car.images[0]) {
+                    return car.images[0];
+                }
+                if (car.image) {
+                    return car.image;
+                }
+                return '../images/cars/SUV-grey.jpg';
+            }
 
-.related-card-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-}
+            // 加载车辆详情
+            function loadCarDetail() {
+                const stored = localStorage.getItem('autohub_cars');
+                let allCars = stored ? JSON.parse(stored) : [];
+                
+                const car = allCars.find(c => c.id === carId);
+                
+                if (!car) {
+                    document.getElementById('detailContent').innerHTML = `
+                        <div style="text-align: center; padding: 4rem; grid-column: 1/-1;">
+                            <h3>Car not found</h3>
+                            <p>The car you're looking for doesn't exist or has been removed.</p>
+                            <a href="search.html" class="btn btn-primary">Back to Search</a>
+                        </div>
+                    `;
+                    return;
+                }
 
-.related-card-price {
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-}
+                // 更新面包屑
+                document.getElementById('breadcrumbTitle').textContent = car.title;
+
+                // 记录浏览历史
+                let viewed = JSON.parse(localStorage.getItem('buyer_viewed_cars') || '[]');
+                if (!viewed.includes(carId)) {
+                    viewed.push(carId);
+                    localStorage.setItem('buyer_viewed_cars', JSON.stringify(viewed));
+                }
+
+                renderCarDetail(car);
+                loadRelatedCars(car, allCars);
+            }
+
+            function renderCarDetail(car) {
+                const mainImage = getCarImage(car);
+                const images = car.images && car.images.length > 0 ? car.images : [mainImage];
+
+                const html = `
+                    <div class="gallery-section">
+                        <img src="${mainImage}" alt="${car.title}" class="main-image" id="mainImage" onerror="this.src='../images/cars/SUV-grey.jpg'">
+                        <div class="thumbnail-list" id="thumbnailList">
+                            ${images.map((img, idx) => `
+                                <img src="${img}" class="thumbnail ${idx === 0 ? 'active' : ''}" data-index="${idx}" onerror="this.src='../images/cars/SUV-grey.jpg'">
+                            `).join('')}
+                            ${images.length <= 1 ? '<div style="padding: 1rem; text-align: center; color: var(--gray);">Only 1 image available</div>' : ''}
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <h1 class="car-title">${car.title}</h1>
+                        <div class="car-price">¥${car.price}万 <small>RMB</small></div>
+                        <div class="specs-grid">
+                            <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">${car.brand || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Model</span><span class="spec-value">${car.model || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Year</span><span class="spec-value">${car.year || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Mileage</span><span class="spec-value">${car.mileage ? car.mileage + '万 km' : 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Transmission</span><span class="spec-value">${car.transmission || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Fuel Type</span><span class="spec-value">${car.fuelType || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Color</span><span class="spec-value">${car.color || 'N/A'}</span></div>
+                            <div class="spec-item"><span class="spec-label">Location</span><span class="spec-value">${car.city || 'N/A'}</span></div>
+                        </div>
+                        <div class="description-section">
+                            <h3>Description</h3>
+                            <p>${car.description || 'No description provided. Contact seller for more information.'}</p>
+                        </div>
+                        <div class="seller-card">
+                            <h3>📞 Seller Information</h3>
+                            <div class="seller-info">Phone: ${car.contactPhone || 'Not provided'}</div>
+                            <div class="seller-info">Listed on: ${car.createdAt ? new Date(car.createdAt).toLocaleDateString() : 'Recently'}</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" id="contactBtn">Contact Seller</button>
+                            <button class="btn btn-secondary" id="saveCarBtn">♡ Save to Favorites</button>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('detailContent').innerHTML = html;
+
+                // 缩略图点击切换
+                const thumbnails = document.querySelectorAll('.thumbnail');
+                const mainImageEl = document.getElementById('mainImage');
+                
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', () => {
+                        thumbnails.forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                        mainImageEl.src = thumb.src;
+                    });
+                });
+
+                // 收藏按钮状态
+                const savedCars = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');
+                const saveBtn = document.getElementById('saveCarBtn');
+                
+                if (savedCars.includes(car.id)) {
+                    saveBtn.innerHTML = '❤️ Saved';
+                    saveBtn.style.background = '#e53e3e';
+                    saveBtn.style.color = 'white';
+                    saveBtn.style.borderColor = '#e53e3e';
+                }
+
+                // 收藏按钮点击
+                saveBtn.addEventListener('click', () => {
+                    let saved = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');
+                    if (saved.includes(car.id)) {
+                        saved = saved.filter(id => id !== car.id);
+                        saveBtn.innerHTML = '♡ Save to Favorites';
+                        saveBtn.style.background = '';
+                        saveBtn.style.color = '';
+                        saveBtn.style.borderColor = '';
+                        showToast('Removed from favorites');
+                    } else {
+                        saved.push(car.id);
+                        saveBtn.innerHTML = '❤️ Saved';
+                        saveBtn.style.background = '#e53e3e';
+                        saveBtn.style.color = 'white';
+                        saveBtn.style.borderColor = '#e53e3e';
+                        showToast('Added to favorites');
+                    }
+                    localStorage.setItem('buyer_saved_cars', JSON.stringify(saved));
+                });
+
+                // 联系卖家按钮
+                document.getElementById('contactBtn').addEventListener('click', () => {
+                    showToast('Contact seller at: ' + (car.contactPhone || 'Number not available'));
+                });
+            }
+
+            // 加载相关推荐（同品牌的其他车辆）
+            function loadRelatedCars(currentCar, allCars) {
+                const related = allCars.filter(car => 
+                    car.id !== currentCar.id && car.brand === currentCar.brand
+                ).slice(0, 3);
+                
+                if (related.length === 0) {
+                    document.getElementById('relatedSection').style.display = 'none';
+                    return;
+                }
+
+                document.getElementById('relatedSection').style.display = 'block';
+                
+                const relatedGrid = document.getElementById('relatedGrid');
+                
+                function getRelatedImage(car) {
+                    if (car.images && car.images[0]) return car.images[0];
+                    if (car.image) return car.image;
+                    return '../images/cars/SUV-grey.jpg';
+                }
+                
+                relatedGrid.innerHTML = related.map(car => `
+                    <div class="related-card">
+                        <img src="${getRelatedImage(car)}" alt="${car.title}" onerror="this.src='../images/cars/SUV-grey.jpg'">
+                        <div class="related-card-info">
+                            <div class="related-card-title">${car.title}</div>
+                            <div class="related-card-price">¥${car.price}万</div>
+                            <a href="car-detail.html?id=${car.id}" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">View Details</a>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
+
+            // 初始化
+            loadCarDetail();
+        })();
+    </script>
+
+
+</body>
+</html>
