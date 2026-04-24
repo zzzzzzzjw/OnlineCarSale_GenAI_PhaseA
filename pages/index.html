@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoElite 专业在线汽车销售平台，提供安全透明的买车卖车服务">
+    <title>AutoElite | 专业在线汽车销售平台</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="主导航">
+            <a href="index.html" class="logo" aria-label="返回首页">
+                <span class="logo-icon" aria-hidden="true">🚗</span>
+                <span class="logo-text">AutoElite</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="search.html">买车</a></li>
+                <li><a href="register.html">成为卖家</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="切换导航菜单" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 公司简介 -->
+        <section class="hero-intro">
+            <div class="container">
+                <h1>连接优质卖家与精准买家</h1>
+                <p>AutoElite 致力于为个人与车商提供安全、透明、高效的在线汽车交易服务。海量严选车源，智能匹配需求，让购车卖车更简单。</p>
+            </div>
+        </section>
+
+        <!-- 轮播图区域 -->
+        <section class="carousel-section" id="heroCarousel" aria-label="汽车展示轮播">
+            <div class="carousel-track">
+                <!-- 注：实际提交时替换为 assets/images/car-1.jpg 等本地路径 -->
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #1e293b, #334155);"></div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #0f172a, #1e293b);"></div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #334155, #475569);"></div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #1e293b, #0f172a);"></div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #475569, #64748b);"></div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn prev" aria-label="上一张">❮</button>
+                <div class="carousel-dots"></div>
+                <button class="carousel-btn next" aria-label="下一张">❯</button>
+            </div>
+        </section>
+
+        <!-- 核心操作按钮 -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>开启您的汽车交易之旅</h2>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary">我要卖车</a>
+                    <a href="search.html" class="btn btn-secondary">我要买车</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | 课程设计项目</p>
+        </div>
+    </footer>
+</body>
+</html>
