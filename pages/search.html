@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Find Cars - AutoHub</title>
     
-    <!-- 全局 CSS -->
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/layout.css">
@@ -14,34 +13,25 @@
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <div class="navbar">
-                <a href="index.html" class="logo">
-                    <img src="../images/logo.png" alt="AutoHub" class="logo-img">
-                    <span>Auto<span style="color: var(--primary);">Hub</span></span>
-                </a>
-                
-                <button class="mobile-toggle" id="mobileToggle">
-                    <span></span><span></span><span></span>
-                </button>
-                
-                <nav class="nav-links" id="navLinks">
-                    <a href="index.html">Home</a>
-                    <a href="search.html" class="active">Find Cars</a>
-                    <a href="add-car.html">Sell Car</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                
-                <div class="auth-links">
-                    <a href="login.html">Sign In</a>
-                    <a href="register.html">Sign Up</a>
-                </div>
+<header class="site-header">
+    <div class="container">
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <img src="../images/logo.png" alt="AutoHub" class="logo-img">
+                <span>Auto<span style="color: var(--primary);">Hub</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Seller</a>
+                <a href="search.html">Find Cars</a>
+                <a href="favourites.html">Favourite</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+                <a href="login.html">Login / Register</a>
             </div>
         </div>
-    </header>
-
+    </div>
+</header>
     <main>
         <section class="search-hero">
             <div class="container">
@@ -69,9 +59,7 @@
                             <option value="Audi">Audi</option>
                             <option value="Tesla">Tesla</option>
                             <option value="Toyota">Toyota</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="BYD">BYD</option>
+                            <option value="Xiaomi">Xiaomi</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -88,8 +76,6 @@
                             <option value="">Any</option>
                             <option value="Gasoline">Gasoline</option>
                             <option value="Electric">Electric</option>
-                            <option value="Hybrid">Hybrid</option>
-                            <option value="Diesel">Diesel</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -98,8 +84,6 @@
                             <option value="">Any</option>
                             <option value="Automatic">Automatic</option>
                             <option value="Manual">Manual</option>
-                            <option value="Tiptronic">Tiptronic</option>
-                            <option value="CVT">CVT</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -120,7 +104,6 @@
                         <option value="mileage">Mileage: Low to High</option>
                     </select>
                 </div>
-
                 <div id="carsContainer" class="cars-grid"></div>
                 <div class="pagination" id="pagination"></div>
             </div>
@@ -135,11 +118,21 @@
 
     <script>
         (function() {
+            // 定义6辆推荐车辆数据
+            const DEFAULT_CARS = [
+                { id: 'car_1', title: '2022 BMW X3 xDrive30i', brand: 'BMW', model: 'X3', year: 2022, price: 38.8, mileage: 3.2, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Shanghai', image: '../images/cars/BMW-blue.jpg', createdAt: '2025-01-15' },
+                { id: 'car_2', title: '2023 Tesla Model 3', brand: 'Tesla', model: 'Model 3', year: 2023, price: 22.5, mileage: 1.5, transmission: 'Automatic', fuelType: 'Electric', city: 'Beijing', image: '../images/cars/TESLA_S.jpg', createdAt: '2025-02-01' },
+                { id: 'car_3', title: '2021 Mercedes-Benz C-Class', brand: 'Mercedes-Benz', model: 'C-Class', year: 2021, price: 28.9, mileage: 4.8, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Shenzhen', image: '../images/cars/SUV-grey.jpg', createdAt: '2025-01-20' },
+                { id: 'car_4', title: '2022 Audi Q5', brand: 'Audi', model: 'Q5', year: 2022, price: 35.6, mileage: 2.5, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Guangzhou', image: '../images/cars/SUV-red.jpg', createdAt: '2025-01-10' },
+                { id: 'car_5', title: '2020 Toyota Camry', brand: 'Toyota', model: 'Camry', year: 2020, price: 16.8, mileage: 5.2, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Hangzhou', image: '../images/cars/BMW-white.jpg', createdAt: '2025-01-25' },
+                { id: 'car_6', title: '2023 Xiaomi SU7', brand: 'Xiaomi', model: 'SU7', year: 2023, price: 21.6, mileage: 0.8, transmission: 'Automatic', fuelType: 'Electric', city: 'Shanghai', image: '../images/cars/xiaomi-grey.jpg', createdAt: '2025-02-10' }
+            ];
+
             let allCars = [];
             let filteredCars = [];
             let currentPage = 1;
             let debounceTimer = null;
-            const itemsPerPage = 9;
+            const ITEMS_PER_PAGE = 6;  // 改为6，显示全部6辆车
 
             // DOM 元素
             const modelSearch = document.getElementById('modelSearch');
@@ -153,17 +146,37 @@
             const searchBtn = document.getElementById('searchBtn');
             const resetBtn = document.getElementById('resetFilters');
 
-            // 移动端菜单
-            const mobileToggle = document.getElementById('mobileToggle');
-            const navLinks = document.getElementById('navLinks');
-            if (mobileToggle && navLinks) {
-                mobileToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('open');
-                    mobileToggle.classList.toggle('open');
-                });
+            // 加载车辆数据
+            function loadCars() {
+                // 读取用户通过 add-car.html 添加的车辆
+                const stored = localStorage.getItem('autohub_cars');
+                let userCars = [];
+                
+                if (stored) {
+                    try {
+                        userCars = JSON.parse(stored);
+                    } catch(e) { console.error(e); }
+                }
+                
+                // 合并：默认6辆车 + 用户添加的车（去重）
+                const defaultIds = DEFAULT_CARS.map(c => c.id);
+                const newUserCars = userCars.filter(c => !defaultIds.includes(c.id));
+                
+                // 格式化默认车辆（确保有 image 字段）
+                const formattedDefault = DEFAULT_CARS.map(car => ({
+                    ...car,
+                    images: [car.image]  // 兼容原有 images 数组格式
+                }));
+                
+                allCars = [...formattedDefault, ...newUserCars];
+                
+                // 保存回 localStorage（但保留用户添加的车）
+                localStorage.setItem('autohub_cars', JSON.stringify(allCars));
+                
+                applyFilters();
             }
 
-            // ========== URL 参数同步 ==========
+            // 更新 URL 参数
             function updateURL() {
                 const params = new URLSearchParams();
                 const model = modelSearch.value.trim();
@@ -180,17 +193,17 @@
                 if (brand) params.set('brand', brand);
                 if (min) params.set('minPrice', min);
                 if (max) params.set('maxPrice', max);
-                if (fuel) params.set('fuel', fuel);
-                if (transmission) params.set('transmission', transmission);
+                if (fuel && fuel !== '') params.set('fuel', fuel);
+                if (transmission && transmission !== '') params.set('transmission', transmission);
                 if (sort && sort !== 'newest') params.set('sort', sort);
 
-                const newUrl = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname;
+                const newUrl = params.toString() ? window.location.pathname + '?' + params.toString() : window.location.pathname;
                 window.history.pushState({}, '', newUrl);
             }
 
+            // 从 URL 加载参数
             function loadParamsFromURL() {
                 const params = new URLSearchParams(window.location.search);
-                
                 if (params.has('model')) modelSearch.value = params.get('model');
                 if (params.has('year')) yearSearch.value = params.get('year');
                 if (params.has('brand')) brandFilter.value = params.get('brand');
@@ -201,30 +214,7 @@
                 if (params.has('sort')) sortSelect.value = params.get('sort');
             }
 
-            // ========== 加载数据 ==========
-            function loadCars() {
-                const stored = localStorage.getItem('autohub_cars');
-                if (stored) {
-                    allCars = JSON.parse(stored);
-                } else {
-                    allCars = getMockCars();
-                    localStorage.setItem('autohub_cars', JSON.stringify(allCars));
-                }
-                applyFilters();
-            }
-
-            function getMockCars() {
-                return [
-                    { id: 'car_1', title: '2022 BMW X3 xDrive30i', brand: 'BMW', model: 'X3', year: 2022, price: 38.8, mileage: 3.2, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Shanghai', images: [], createdAt: '2025-01-15T00:00:00.000Z' },
-                    { id: 'car_2', title: '2023 Tesla Model 3', brand: 'Tesla', model: 'Model 3', year: 2023, price: 22.5, mileage: 1.5, transmission: 'Automatic', fuelType: 'Electric', city: 'Beijing', images: [], createdAt: '2025-02-01T00:00:00.000Z' },
-                    { id: 'car_3', title: '2021 Mercedes-Benz C-Class', brand: 'Mercedes-Benz', model: 'C-Class', year: 2021, price: 28.9, mileage: 4.8, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Shenzhen', images: [], createdAt: '2025-01-20T00:00:00.000Z' },
-                    { id: 'car_4', title: '2022 Audi Q5', brand: 'Audi', model: 'Q5', year: 2022, price: 35.6, mileage: 2.5, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Guangzhou', images: [], createdAt: '2025-01-10T00:00:00.000Z' },
-                    { id: 'car_5', title: '2020 Toyota Camry', brand: 'Toyota', model: 'Camry', year: 2020, price: 16.8, mileage: 5.2, transmission: 'Automatic', fuelType: 'Gasoline', city: 'Hangzhou', images: [], createdAt: '2025-01-25T00:00:00.000Z' },
-                    { id: 'car_6', title: '2023 BYD Seagull', brand: 'BYD', model: 'Seagull', year: 2023, price: 7.8, mileage: 0.5, transmission: 'Automatic', fuelType: 'Electric', city: 'Shanghai', images: [], createdAt: '2025-02-10T00:00:00.000Z' }
-                ];
-            }
-
-            // ========== 筛选逻辑 ==========
+            // 筛选
             function applyFilters() {
                 const modelKeyword = modelSearch.value.trim().toLowerCase();
                 const yearValue = yearSearch.value.trim();
@@ -235,23 +225,16 @@
                 const transmission = transmissionFilter.value;
 
                 filteredCars = allCars.filter(car => {
-                    // 模型搜索（不区分大小写，匹配 title 和 model）
                     if (modelKeyword) {
-                        const searchable = (car.title + ' ' + car.model).toLowerCase();
+                        const searchable = (car.title + ' ' + car.model + ' ' + car.brand).toLowerCase();
                         if (!searchable.includes(modelKeyword)) return false;
                     }
-                    // 年份搜索
                     if (yearValue && car.year !== parseInt(yearValue)) return false;
-                    // 品牌筛选
                     if (brand && car.brand !== brand) return false;
-                    // 价格筛选
                     if (car.price < min) return false;
                     if (car.price > max) return false;
-                    // 燃油类型筛选
                     if (fuel && car.fuelType !== fuel) return false;
-                    // 变速箱筛选
                     if (transmission && car.transmission !== transmission) return false;
-                    
                     return true;
                 });
 
@@ -259,6 +242,7 @@
                 updateURL();
             }
 
+            // 排序
             function applySort() {
                 const sortBy = sortSelect.value;
                 switch(sortBy) {
@@ -279,39 +263,27 @@
                 renderResults();
             }
 
-            // ========== 防抖函数 ==========
-            function debounce(func, delay) {
-                return function(...args) {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => func.apply(this, args), delay);
+            // 防抖
+            const debouncedSearch = (function() {
+                let timer = null;
+                return function() {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => applyFilters(), 500);
                 };
-            }
+            })();
 
-            // 带防抖的搜索
-            const debouncedSearch = debounce(() => {
-                applyFilters();
-            }, 500);
-
-            // ========== 渲染结果 ==========
+            // 渲染结果
             function renderResults() {
-                const start = (currentPage - 1) * itemsPerPage;
-                const end = start + itemsPerPage;
-                const paginatedCars = filteredCars.slice(start, end);
-                
+                const start = (currentPage - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                const pageCars = filteredCars.slice(start, end);
                 const container = document.getElementById('carsContainer');
                 const countSpan = document.getElementById('resultsCount');
                 
                 countSpan.textContent = `${filteredCars.length} car${filteredCars.length !== 1 ? 's' : ''} found`;
                 
-                if (paginatedCars.length === 0) {
-                    container.innerHTML = `
-                        <div class="no-results" style="grid-column: 1/-1;">
-                            <div class="no-results-icon">🔍</div>
-                            <h3>No cars found</h3>
-                            <p>Try adjusting your search terms or filters</p>
-                            <button class="btn btn-primary" id="clearFiltersBtn">Clear All Filters</button>
-                        </div>
-                    `;
+                if (pageCars.length === 0) {
+                    container.innerHTML = `<div class="no-results"><div class="no-results-icon">🔍</div><h3>No cars found</h3><p>Try adjusting your search terms or filters</p><button class="btn btn-primary" id="clearFiltersBtn">Clear All Filters</button></div>`;
                     const clearBtn = document.getElementById('clearFiltersBtn');
                     if (clearBtn) clearBtn.addEventListener('click', resetAllFilters);
                     document.getElementById('pagination').innerHTML = '';
@@ -319,11 +291,15 @@
                 }
                 
                 const savedCars = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');
+                const imagePath = (car) => {
+                    if (car.images && car.images[0]) return car.images[0];
+                    if (car.image) return car.image;
+                    return '../images/cars/SUV-grey.jpg';
+                };
                 
-                container.innerHTML = paginatedCars.map(car => `
+                container.innerHTML = pageCars.map(car => `
                     <div class="car-card">
-                        <img src="${car.images && car.images[0] ? car.images[0] : 'https://placehold.co/400x200/e2e8f0/64748b?text=Car+Image'}" 
-                             alt="${car.title}" class="car-image">
+                        <img src="${imagePath(car)}" class="car-image" onerror="this.src='../images/cars/SUV-grey.jpg'">
                         <div class="car-info">
                             <h3 class="car-title">${car.title}</h3>
                             <div class="car-price">¥${car.price}万</div>
@@ -344,51 +320,43 @@
                     </div>
                 `).join('');
                 
+                // 收藏按钮事件
                 document.querySelectorAll('.save-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        toggleSaveCar(btn.dataset.id, btn);
+                        const carId = btn.dataset.id;
+                        let saved = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');
+                        if (saved.includes(carId)) {
+                            saved = saved.filter(id => id !== carId);
+                            btn.textContent = '🤍';
+                            btn.classList.remove('saved');
+                            showToast('Removed from saved');
+                        } else {
+                            saved.push(carId);
+                            btn.textContent = '❤️';
+                            btn.classList.add('saved');
+                            showToast('Saved to your list');
+                        }
+                        localStorage.setItem('buyer_saved_cars', JSON.stringify(saved));
                     });
                 });
                 
                 renderPagination();
             }
-            
-            function toggleSaveCar(carId, btn) {
-                let saved = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');
-                if (saved.includes(carId)) {
-                    saved = saved.filter(id => id !== carId);
-                    btn.textContent = '🤍';
-                    btn.classList.remove('saved');
-                    showToast('Removed from saved');
-                } else {
-                    saved.push(carId);
-                    btn.textContent = '❤️';
-                    btn.classList.add('saved');
-                    showToast('Saved to your list');
-                }
-                localStorage.setItem('buyer_saved_cars', JSON.stringify(saved));
-            }
-            
-            function showToast(message) {
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.textContent = message;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
-            }
-            
+
+            // 分页
             function renderPagination() {
-                const totalPages = Math.ceil(filteredCars.length / itemsPerPage);
+                const totalPages = Math.ceil(filteredCars.length / ITEMS_PER_PAGE);
                 const paginationDiv = document.getElementById('pagination');
-                if (totalPages <= 1) { paginationDiv.innerHTML = ''; return; }
-                
+                if (totalPages <= 1) {
+                    paginationDiv.innerHTML = '';
+                    return;
+                }
                 let html = '';
                 for (let i = 1; i <= Math.min(totalPages, 5); i++) {
                     html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
                 }
                 paginationDiv.innerHTML = html;
-                
                 document.querySelectorAll('.page-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         currentPage = parseInt(btn.dataset.page);
@@ -397,7 +365,8 @@
                     });
                 });
             }
-            
+
+            // 重置筛选
             function resetAllFilters() {
                 modelSearch.value = '';
                 yearSearch.value = '';
@@ -409,48 +378,36 @@
                 sortSelect.value = 'newest';
                 applyFilters();
             }
-            
-            // ========== 事件监听 ==========
-            // 防抖搜索
+
+            // 提示
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
+
+            // 事件监听
             modelSearch.addEventListener('input', debouncedSearch);
             yearSearch.addEventListener('input', debouncedSearch);
-            // 立即触发的筛选
-            brandFilter.addEventListener('change', () => applyFilters());
-            minPrice.addEventListener('input', () => applyFilters());
-            maxPrice.addEventListener('input', () => applyFilters());
-            fuelFilter.addEventListener('change', () => applyFilters());
-            transmissionFilter.addEventListener('change', () => applyFilters());
-            sortSelect.addEventListener('change', () => applyFilters());
-            searchBtn.addEventListener('click', () => applyFilters());
+            brandFilter.addEventListener('change', applyFilters);
+            minPrice.addEventListener('input', applyFilters);
+            maxPrice.addEventListener('input', applyFilters);
+            fuelFilter.addEventListener('change', applyFilters);
+            transmissionFilter.addEventListener('change', applyFilters);
+            sortSelect.addEventListener('change', applyFilters);
+            searchBtn.addEventListener('click', applyFilters);
             resetBtn.addEventListener('click', resetAllFilters);
-            
-            // 监听浏览器前进后退
             window.addEventListener('popstate', () => {
                 loadParamsFromURL();
                 applyFilters();
             });
-            
+
             // 初始化
             loadParamsFromURL();
             loadCars();
         })();
     </script>
-
-    <style>
-        .logo-img { height: 40px; width: auto; }
-        @media (max-width: 768px) { .logo-img { height: 32px; } }
-        .toast {
-            position: fixed; bottom: 2rem; right: 2rem;
-            background: var(--dark); color: white;
-            padding: 0.75rem 1.5rem; border-radius: 50px;
-            box-shadow: var(--shadow-lg); z-index: 1000;
-            animation: slideInRight 0.3s ease; font-size: 0.9rem;
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
-    </style>
 </body>
 </html>
