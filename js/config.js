@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(autoSlideInterval);
   }
 
-  // ✅ 核心交互：鼠标移入自动滑，移出停止
+  // ✅ Core Interaction: Auto-scroll on mouse hover, stop scrolling on mouse leave
   carousel.addEventListener('mouseenter', startAutoSlide);
   carousel.addEventListener('mouseleave', stopAutoSlide);
 
-  // 箭头点击
+  // Arrow Click
   prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
   nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
 });

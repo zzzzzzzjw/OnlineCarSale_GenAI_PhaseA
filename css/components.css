@@ -1,4 +1,4 @@
-/* 按钮组件 */
+/* Button Components */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem;
@@ -11,7 +11,7 @@
 .btn-secondary:hover { background: var(--primary); color: var(--white); }
 .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
 
-/* 轮播图组件 */
+/* Carousel Component */
 .carousel-section {
   position: relative; width: 100%; max-width: 1000px; margin: 0 auto 4rem;
   overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow-lg);
@@ -40,6 +40,6 @@
 .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: var(--transition); border: none; padding: 0; }
 .dot.active { background: var(--white); transform: scale(1.3); box-shadow: 0 0 8px rgba(255,255,255,0.5); }
 
-/* 移动端汉堡菜单 */
+/* Mobile Hamburger Menu */
 .mobile-toggle { display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 18px; background: transparent; border: none; cursor: pointer; padding: 0; }
 .mobile-toggle span { display: block; width: 100%; height: 2px; background: var(--dark); border-radius: 2px; transition: var(--transition); }
