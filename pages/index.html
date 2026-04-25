@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoElite - Professional Online Car Sales Platform">
+    <title>AutoElite | Professional Car Sales</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>📞 Hotline: 400-123-4567</span>
+            <div class="top-links">
+                <a href="mailto:support@autoelite.com">✉ support@autoelite.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-nav">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="../images/logo.png" alt="AutoElite">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">🏠 Home</a></li>
+                <li><a href="seller.html" class="nav-link">👨‍💼 Seller</a></li>
+                <li><a href="search.html" class="nav-link">🔍 Search</a></li>
+                <li><a href="profile.html" class="nav-link">👤 Profile</a></li>
+                <li><a href="login.html" class="nav-link">🔐 Login & Registration</a></li>
+                <li><a href="about.html" class="nav-link">ℹ️ About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Main Content Area -->
+        <div class="container">
+            <div class="main-layout">
+                <!-- Left Category Menu -->
+                <aside class="category-menu">
+                    <div class="menu-header">
+                        <span>☰</span>
+                        <span>Car Categories</span>
+                    </div>
+                    <ul class="menu-list">
+                        <li><a href="#">Sedan <span>›</span></a></li>
+                        <li><a href="#">SUV <span>›</span></a></li>
+                        <li><a href="#">Sports Car <span>›</span></a></li>
+                        <li><a href="#">New Energy <span>›</span></a></li>
+                        <li><a href="#">MPV <span>›</span></a></li>
+                        <li><a href="#">Off-road <span>›</span></a></li>
+                        <li><a href="#">Luxury <span>›</span></a></li>
+                        <li><a href="#">Used Cars <span>›</span></a></li>
+                    </ul>
+                </aside>
+
+                <!-- Right Content -->
+                <div class="main-content">
+                    <!-- Hero Carousel -->
+                    <section class="hero-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track" id="carouselTrack">
+                                <div class="carousel-slide active" style="background-image: url('../images/cars/hero-1.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">Limited Offer</span>
+                                        <h2>Luxury Sports Series</h2>
+                                        <p>Top performance, ultimate driving experience, enjoy a luxurious life</p>
+                                        <button class="btn-primary">View Details</button>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-2.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">New Arrival</span>
+                                        <h2>New Energy Sedan</h2>
+                                        <p>Eco-friendly, smart technology, future travel choice</p>
+                                        <button class="btn-primary">View Details</button>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-3.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">Best Seller</span>
+                                        <h2>Family SUV</h2>
+                                        <p>Spacious, comfortable, safe, family travel first choice</p>
+                                        <button class="btn-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Service Features -->
+            <section class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>Free delivery service upon successful order</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Worry-free Returns</h3>
+                    <p>7-day no reason return, 30-day quality exchange</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡</div>
+                    <h3>Authentic Guarantee</h3>
+                    <p>Official authorization, 100% genuine, 10x compensation for fakes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Dedicated Support</h3>
+                    <p>24/7 online customer service for any inquiries</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | Course Design Project</p>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel Functionality
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        // Create Indicator Dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlide() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(() => moveCarousel(1), 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // Hover Controls
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Initialize
+        startAutoSlide();
+    </script>
+</body>
+</html>
