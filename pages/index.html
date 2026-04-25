@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoElite 专业在线汽车销售平台">
+    <title>AutoElite | 专业汽车销售平台</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <!-- 顶部信息栏 -->
+    <div class="top-bar">
+        <div class="container">
+            <span>📞 客服热线: 400-123-4567</span>
+            <div class="top-links">
+                <a href="mailto:support@autoelite.com">✉ support@autoelite.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主导航 -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="../images/logo.png" alt="AutoElite">
+                </a>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="搜索您想要的车型...">
+                    <button type="submit">🔍</button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="login.html" class="nav-item">
+                        <span>👤</span>
+                        <span>登录/注册</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span>⭐</span>
+                        <span>收藏</span>
+                    </a>
+                    <a href="#" class="nav-item cart">
+                        <span>🛒</span>
+                        <span>购物车</span>
+                        <span class="badge">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 主内容区 -->
+        <div class="container">
+            <div class="main-layout">
+                <!-- 左侧分类菜单 -->
+                <aside class="category-menu">
+                    <div class="menu-header">
+                        <span>☰</span>
+                        <span>汽车分类</span>
+                    </div>
+                    <ul class="menu-list">
+                        <li><a href="#">轿车 <span>›</span></a></li>
+                        <li><a href="#">SUV <span>›</span></a></li>
+                        <li><a href="#">跑车 <span>›</span></a></li>
+                        <li><a href="#">新能源车 <span>›</span></a></li>
+                        <li><a href="#">MPV <span>›</span></a></li>
+                        <li><a href="#">越野车 <span>›</span></a></li>
+                        <li><a href="#">豪华车 <span>›</span></a></li>
+                        <li><a href="#">二手车 <span>›</span></a></li>
+                    </ul>
+                </aside>
+
+                <!-- 右侧内容 -->
+                <div class="main-content">
+                    <!-- 轮播图 -->
+                    <section class="hero-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track" id="carouselTrack">
+                                <div class="carousel-slide active" style="background-image: url('../images/cars/hero-1.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">限时特惠</span>
+                                        <h2>豪华跑车系列</h2>
+                                        <p>顶级性能，极致驾驶体验，尊享奢华生活</p>
+                                        <button class="btn-primary">查看详情</button>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-2.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">新品上市</span>
+                                        <h2>新能源轿车</h2>
+                                        <p>环保节能，智能科技，未来出行新选择</p>
+                                        <button class="btn-primary">查看详情</button>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-3.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">热销车型</span>
+                                        <h2>家庭SUV</h2>
+                                        <p>宽敞舒适，安全可靠，家庭出行首选</p>
+                                        <button class="btn-primary">查看详情</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 服务特色 -->
+            <section class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>全国配送</h3>
+                    <p>订单成交即可享受免费配送服务</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>无忧退换</h3>
+                    <p>7天无理由退货，30天质量问题换货</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡</div>
+                    <h3>正品保证</h3>
+                    <p>官方授权，100% 正品保障，假一赔十</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>专属客服</h3>
+                    <p>24/7 在线客服，为您解答任何疑问</p>
+                </div>
+            </section>
+
+            <!-- 新车上架 -->
+            <section class="products-section">
+                <div class="section-header">
+                    <h2><span class="section-bar"></span>新车上架</h2>
+                    <a href="#" class="view-all">查看全部 →</a>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-1.jpg');">
+                            <span class="product-tag">智能轿车</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>奔驰 S级 2024款</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                                <span>(4.8)</span>
+                            </div>
+                            <div class="product-price">¥1,968,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-2.jpg');">
+                            <span class="product-tag">豪华SUV</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>宝马 X7 2024款</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                                <span>(4.9)</span>
+                            </div>
+                            <div class="product-price">¥1,370,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-3.jpg');">
+                            <span class="product-tag">跑车</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>保时捷 911 Turbo S</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                                <span>(5.0)</span>
+                            </div>
+                            <div class="product-price">¥2,359,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-4.jpg');">
+                            <span class="product-tag">新能源</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>特斯拉 Model S Plaid</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                                <span>(4.7)</span>
+                            </div>
+                            <div class="product-price">¥1,299,000</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 热销排行 -->
+            <section class="products-section">
+                <div class="section-header">
+                    <h2><span class="section-bar"></span>热销排行</h2>
+                    <a href="#" class="view-all">查看全部 →</a>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-5.jpg');">
+                            <span class="product-tag">豪华轿车</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>奥迪 A8L 2024款</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="product-price">¥1,380,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-6.jpg');">
+                            <span class="product-tag">SUV</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>路虎 揽胜 2024款</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="product-price">¥1,862,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-7.jpg');">
+                            <span class="product-tag">跑车</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>法拉利 F8 Tributo</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="product-price">¥3,203,000</div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-8.jpg');">
+                            <span class="product-tag">新能源车</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>比亚迪 汉EV 2024款</h3>
+                            <div class="product-rating">
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="product-price">¥278,500</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | 课程设计项目</p>
+        </div>
+    </footer>
+
+    <script>
+        // 轮播图功能
+        let currentIndex = 0;
+        let autoSlideInterval;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        // 创建指示点
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlide() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function moveCarousel(direction) {
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            updateSlide();
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(() => moveCarousel(1), 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // 鼠标悬停控制
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // 启动自动轮播
+        startAutoSlide();
+    </script>
+</body>
+</html>
