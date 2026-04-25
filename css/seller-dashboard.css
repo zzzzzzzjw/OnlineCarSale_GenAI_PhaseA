@@ -1,0 +1,206 @@
+/* Seller Dashboard Specific Styles 
+   Reusing variables from base.css and structure from layout.css
+*/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.dashboard-toolbar {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-wrapper {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.search-wrapper input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-wrapper input:focus {
+  border-color: var(--secondary);
+}
+
+.search-wrapper input.is-invalid {
+  border-color: #dc3545;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Vehicle Grid Layout */
+.vehicle-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Desktop default: 3 columns */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Vehicle Card Component */
+.vehicle-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-light);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.vehicle-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.vehicle-image-container {
+  position: relative;
+  aspect-ratio: 16/10;
+  background-color: var(--gray-light);
+  overflow: hidden;
+}
+
+.vehicle-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.status-listed { background-color: #28a745; }
+.status-unlisted { background-color: var(--gray); }
+.status-sold { background-color: var(--secondary); }
+
+.vehicle-info {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.vehicle-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-price {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.vehicle-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 1rem 1.2rem;
+  background-color: var(--light);
+  border-top: 1px solid var(--gray-light);
+}
+
+.btn-action {
+  padding: 0.4rem 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-edit { background: var(--white); color: var(--primary); border: 1px solid var(--gray); }
+.btn-edit:hover { border-color: var(--primary); }
+
+.btn-toggle { background: var(--primary); color: var(--white); }
+.btn-toggle:hover { background: var(--primary-dark); }
+
+.btn-delete { background: #fff1f0; color: #dc3545; grid-column: span 2; border: 1px solid #ffccc7;}
+.btn-delete:hover { background: #dc3545; color: var(--white); }
+
+/* Responsive Breakpoints */
+@media (max-width: 1199px) { /* Laptop */
+  .vehicle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) { /* Tablet */
+  .main-layout {
+    flex-direction: column;
+  }
+  .category-menu {
+    width: 100%;
+  }
+  .vehicle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) { /* Mobile (Graceful degradation) */
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
