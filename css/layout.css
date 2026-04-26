@@ -43,7 +43,7 @@
 .global-nav .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo Left, Links Right */
+  justify-content: space-between;
   padding: 0.8rem 2rem;
 }
 
@@ -98,7 +98,6 @@
 }
 
 /* --- Main Layout (Sidebar + Content) --- */
-/* CRITICAL FIX: Flexbox ensures sidebar and content sit side-by-side */
 .main-layout {
   display: flex;
   flex-direction: row;
@@ -110,12 +109,12 @@
 /* Left Category Menu */
 .category-menu {
   width: 240px;
-  min-width: 240px; /* Prevents shrinking */
+  min-width: 240px;
   background: var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   overflow: hidden;
-  flex-shrink: 0; /* Ensures sidebar stays fixed width */
+  flex-shrink: 0;
 }
 
 .menu-header {
@@ -140,7 +139,7 @@
 .menu-list li a:hover {
   background: var(--light);
   color: var(--secondary);
-  padding-left: 2rem; /* Slide effect */
+  padding-left: 2rem;
 }
 
 .menu-list li a span:last-child {
@@ -149,8 +148,8 @@
 
 /* Right Content Area */
 .main-content {
-  flex: 1; /* Takes all remaining space */
-  min-width: 0; /* Prevents flex overflow issues with carousel */
+  flex: 1;
+  min-width: 0;
 }
 
 /* --- Hero Carousel --- */
@@ -163,7 +162,7 @@
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  aspect-ratio: 16/6; /* Widescreen format */
+  aspect-ratio: 16/6;
   background: #000;
 }
 
@@ -379,6 +378,7 @@
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
 }
 
 .product-image {
@@ -440,4 +440,19 @@
 .site-footer p {
   opacity: 0.8;
   font-size: 0.9rem;
+}
+
+/* --- Iteration 2 Fix: Preserve hover effects when wrapping cards in <a> --- */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.product-card-link:hover .product-card {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
 }
