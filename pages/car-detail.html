@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Car Detail - AutoHub</title>
+    
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/car-detail.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="../images/logo.png" alt="AutoHub" class="logo-img">
+                    <span>Auto<span style="color: var(--primary);">Hub</span></span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="search.html">Find Cars</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="detail-container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="search.html">Find Cars</a>
+                <span>/</span>
+                <span id="breadcrumbTitle">Car Details</span>
+            </div>
+
+            <div class="detail-grid" id="detailContent">
+                <div style="text-align: center; padding: 4rem;">Loading car details...</div>
+            </div>
+
+            <div class="related-section" id="relatedSection" style="display: none;">
+                <h2>You May Also Like</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 AutoHub. Professional Used Car Platform</p>
+        </div>
+    </footer>
+
+    <script src="../js/car-detail.js"></script>
+
+</body>
+</html>
