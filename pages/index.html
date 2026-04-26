@@ -26,15 +26,15 @@
     <nav class="global-nav">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="../images/logo.png" alt="AutoElite">
+                <img src="../images/logo.png" alt="AutoElite Logo">
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">🏠 Home</a></li>
-                <li><a href="seller.html" class="nav-link">👨‍💼 Seller</a></li>
-                <li><a href="search.html" class="nav-link">🔍 Search</a></li>
-                <li><a href="profile.html" class="nav-link">👤 Profile</a></li>
-                <li><a href="login.html" class="nav-link">🔐 Login & Registration</a></li>
-                <li><a href="about.html" class="nav-link">ℹ️ About Us</a></li>
+                <li><a href="index.html" class="nav-link active" aria-current="page"> Home</a></li>
+                <li><a href="seller.html" class="nav-link"> Seller</a></li>
+                <li><a href="search.html" class="nav-link"> Search</a></li>
+                <li><a href="profile.html" class="nav-link"> Profile</a></li>
+                <li><a href="login.html" class="nav-link"> Login & Registration</a></li>
+                <li><a href="about.html" class="nav-link"> About Us</a></li>
             </ul>
         </div>
     </nav>
@@ -44,107 +44,285 @@
         <div class="container">
             <div class="main-layout">
                 <!-- Left Category Menu -->
-                <aside class="category-menu">
+                <aside class="category-menu" aria-label="Car Categories Navigation">
                     <div class="menu-header">
                         <span>☰</span>
                         <span>Car Categories</span>
                     </div>
                     <ul class="menu-list">
-                        <li><a href="#">Sedan <span>›</span></a></li>
-                        <li><a href="#">SUV <span>›</span></a></li>
-                        <li><a href="#">Sports Car <span>›</span></a></li>
-                        <li><a href="#">New Energy <span>›</span></a></li>
-                        <li><a href="#">MPV <span>›</span></a></li>
-                        <li><a href="#">Off-road <span>›</span></a></li>
-                        <li><a href="#">Luxury <span>›</span></a></li>
-                        <li><a href="#">Used Cars <span>›</span></a></li>
+                        <li><a href="search.html">Sedan <span>›</span></a></li>
+                        <li><a href="search.html">SUV <span>›</span></a></li>
+                        <li><a href="search.html">Sports Car <span>›</span></a></li>
+                        <li><a href="search.html">New Energy <span>›</span></a></li>
+                        <li><a href="search.html">MPV <span>›</span></a></li>
+                        <li><a href="search.html">Off-road <span>›</span></a></li>
+                        <li><a href="search.html">Luxury <span>›</span></a></li>
+                        <li><a href="search.html">Used Cars <span>›</span></a></li>
                     </ul>
                 </aside>
 
                 <!-- Right Content -->
                 <div class="main-content">
                     <!-- Hero Carousel -->
-                    <section class="hero-carousel">
+                    <section class="hero-carousel" aria-label="Featured Vehicles Carousel">
                         <div class="carousel-container">
                             <div class="carousel-track" id="carouselTrack">
+                                <!-- Slide 1 -->
                                 <div class="carousel-slide active" style="background-image: url('../images/cars/hero-1.jpg');">
                                     <div class="slide-content">
                                         <span class="tag">Limited Offer</span>
                                         <h2>Luxury Sports Series</h2>
                                         <p>Top performance, ultimate driving experience, enjoy a luxurious life</p>
-                                        <button class="btn-primary">View Details</button>
+                                        <a href="car-detail.html?id=1" class="btn-primary" aria-label="View details for Luxury Sports Series">View Details</a>
                                     </div>
                                 </div>
+                                <!-- Slide 2 -->
                                 <div class="carousel-slide" style="background-image: url('../images/cars/hero-2.jpg');">
                                     <div class="slide-content">
                                         <span class="tag">New Arrival</span>
                                         <h2>New Energy Sedan</h2>
                                         <p>Eco-friendly, smart technology, future travel choice</p>
-                                        <button class="btn-primary">View Details</button>
+                                        <a href="car-detail.html?id=2" class="btn-primary" aria-label="View details for New Energy Sedan">View Details</a>
                                     </div>
                                 </div>
+                                <!-- Slide 3 -->
                                 <div class="carousel-slide" style="background-image: url('../images/cars/hero-3.jpg');">
                                     <div class="slide-content">
                                         <span class="tag">Best Seller</span>
                                         <h2>Family SUV</h2>
                                         <p>Spacious, comfortable, safe, family travel first choice</p>
-                                        <button class="btn-primary">View Details</button>
+                                        <a href="car-detail.html?id=3" class="btn-primary" aria-label="View details for Family SUV">View Details</a>
+                                    </div>
+                                </div>
+                                <!-- Slide 4 -->
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-4.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">Premium Choice</span>
+                                        <h2>Executive Sedan</h2>
+                                        <p>Elegant and dignified, comfortable ride, best for business</p>
+                                        <a href="car-detail.html?id=4" class="btn-primary" aria-label="View details for Executive Sedan">View Details</a>
+                                    </div>
+                                </div>
+                                <!-- Slide 5 -->
+                                <div class="carousel-slide" style="background-image: url('../images/cars/hero-5.jpg');">
+                                    <div class="slide-content">
+                                        <span class="tag">Off-Road King</span>
+                                        <h2>Hardcore Off-Road</h2>
+                                        <p>Powerful engine, conquer any terrain, explore infinite possibilities</p>
+                                        <a href="car-detail.html?id=5" class="btn-primary" aria-label="View details for Hardcore Off-Road">View Details</a>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-                            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-                            <div class="carousel-dots"></div>
+                            <button class="carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Previous slide">❮</button>
+                            <button class="carousel-btn next" onclick="moveCarousel(1)" aria-label="Next slide">❯</button>
+                            <div class="carousel-dots" role="tablist" aria-label="Carousel navigation"></div>
                         </div>
                     </section>
                 </div>
             </div>
 
             <!-- Service Features -->
-            <section class="features-grid">
+            <section class="features-grid" aria-label="Our Services">
                 <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
+                    <div class="feature-icon" aria-hidden="true">🚚</div>
                     <h3>Nationwide Delivery</h3>
                     <p>Free delivery service upon successful order</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon" aria-hidden="true">🔄</div>
                     <h3>Worry-free Returns</h3>
                     <p>7-day no reason return, 30-day quality exchange</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🛡</div>
+                    <div class="feature-icon" aria-hidden="true">🛡</div>
                     <h3>Authentic Guarantee</h3>
                     <p>Official authorization, 100% genuine, 10x compensation for fakes</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎧</div>
+                    <div class="feature-icon" aria-hidden="true">🎧</div>
                     <h3>Dedicated Support</h3>
                     <p>24/7 online customer service for any inquiries</p>
+                </div>
+            </section>
+
+            <!-- New Arrivals Section -->
+            <section class="products-section" aria-label="New Arrivals">
+                <div class="section-header">
+                    <h2><span class="section-bar"></span>New Arrivals</h2>
+                    <a href="search.html" class="view-all">View All →</a>
+                </div>
+                <div class="products-grid">
+                    <!-- Card 1 -->
+                    <a href="car-detail.html?id=1" class="product-card-link" aria-label="View details for Mercedes-Benz S-Class 2024">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/car-1.jpg');" role="img" aria-label="Mercedes-Benz S-Class 2024">
+                                <span class="product-tag">Smart Sedan</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Mercedes-Benz S-Class 2024</h3>
+                                <div class="product-rating" aria-label="Rating: 4.8 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.8)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 1,968,000 Yuan">¥1,968,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="car-detail.html?id=2" class="product-card-link" aria-label="View details for BMW X7 2024">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/hero-3.jpg');" role="img" aria-label="BMW X7 2024">
+                                <span class="product-tag">Luxury SUV</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>BMW X7 2024</h3>
+                                <div class="product-rating" aria-label="Rating: 4.9 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.9)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 1,370,000 Yuan">¥1,370,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="car-detail.html?id=3" class="product-card-link" aria-label="View details for Porsche 911 Turbo S">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/car-3.jpg');" role="img" aria-label="Porsche 911 Turbo S">
+                                <span class="product-tag">Sports Car</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Porsche 911 Turbo S</h3>
+                                <div class="product-rating" aria-label="Rating: 5.0 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(5.0)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 2,359,000 Yuan">¥2,359,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="car-detail.html?id=4" class="product-card-link" aria-label="View details for Tesla Model S Plaid">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/car-4.jpg');" role="img" aria-label="Tesla Model S Plaid">
+                                <span class="product-tag">New Energy</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Tesla Model S Plaid</h3>
+                                <div class="product-rating" aria-label="Rating: 4.7 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.7)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 1,299,000 Yuan">¥1,299,000</div>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Best Sellers Section -->
+            <section class="products-section" aria-label="Best Sellers">
+                <div class="section-header">
+                    <h2><span class="section-bar"></span>Best Sellers</h2>
+                    <a href="search.html" class="view-all">View All →</a>
+                </div>
+                <div class="products-grid">
+                    <!-- Card 5 -->
+                    <a href="car-detail.html?id=5" class="product-card-link" aria-label="View details for Audi A8L 2024">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/car-5.jpg');" role="img" aria-label="Audi A8L 2024">
+                                <span class="product-tag">Luxury Sedan</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Audi A8L 2024</h3>
+                                <div class="product-rating" aria-label="Rating: 4.8 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.8)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 1,380,000 Yuan">¥1,380,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 6 -->
+                    <a href="car-detail.html?id=6" class="product-card-link" aria-label="View details for Land Rover Range Rover 2024">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/hero-5.jpg');" role="img" aria-label="Land Rover Range Rover 2024">
+                                <span class="product-tag">SUV</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Land Rover Range Rover 2024</h3>
+                                <div class="product-rating" aria-label="Rating: 4.9 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.9)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 1,862,000 Yuan">¥1,862,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 7 -->
+                    <a href="car-detail.html?id=7" class="product-card-link" aria-label="View details for Ferrari F8 Tributo">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/hero-1.jpg');" role="img" aria-label="Ferrari F8 Tributo">
+                                <span class="product-tag">Sports Car</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Ferrari F8 Tributo</h3>
+                                <div class="product-rating" aria-label="Rating: 5.0 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(5.0)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 3,203,000 Yuan">¥3,203,000</div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Card 8 -->
+                    <a href="car-detail.html?id=8" class="product-card-link" aria-label="View details for BYD Han EV 2024">
+                        <article class="product-card">
+                            <div class="product-image" style="background-image: url('../images/cars/hero-2.jpg');" role="img" aria-label="BYD Han EV 2024">
+                                <span class="product-tag">New Energy</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>BYD Han EV 2024</h3>
+                                <div class="product-rating" aria-label="Rating: 4.6 out of 5 stars">
+                                    <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                    <span>(4.6)</span>
+                                </div>
+                                <div class="product-price" aria-label="Price: 278,500 Yuan">¥278,500</div>
+                            </div>
+                        </article>
+                    </a>
                 </div>
             </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | Course Design Project</p>
         </div>
     </footer>
 
+    <!-- Carousel JavaScript (Extracted to ../js/main.js in actual repo) -->
     <script>
-        // Carousel Functionality
+        // Carousel functionality
         let currentIndex = 0;
         let autoSlideInterval;
         const slides = document.querySelectorAll('.carousel-slide');
         const track = document.getElementById('carouselTrack');
         const dotsContainer = document.querySelector('.carousel-dots');
 
-        // Create Indicator Dots
+        // Create indicator dots
         slides.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.classList.add('dot');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', () => goToSlide(i));
             dotsContainer.appendChild(dot);
@@ -154,7 +332,10 @@
 
         function updateSlide() {
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+                d.setAttribute('aria-selected', i === currentIndex);
+            });
         }
 
         function goToSlide(index) {
@@ -183,7 +364,7 @@
             startAutoSlide();
         }
 
-        // Hover Controls
+        // Hover controls
         const carouselContainer = document.querySelector('.carousel-container');
         carouselContainer.addEventListener('mouseenter', stopAutoSlide);
         carouselContainer.addEventListener('mouseleave', startAutoSlide);
