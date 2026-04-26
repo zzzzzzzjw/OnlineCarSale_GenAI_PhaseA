@@ -20,31 +20,38 @@
         </div>
       </div>
     </div>
+
+
+    /* Modified part start */
+
     <nav class="navbar container">
       <div class="logo">
         <span style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">CAR<span style="color: var(--secondary);">SALES</span></span>
       </div>
       <div class="nav-actions">
-        <div class="nav-item">
-          <span>👤</span>
-          <span>My Profile</span>
         </div>
-      </div>
     </nav>
   </header>
 
   <div class="container main-layout">
-    <aside class="category-menu">
-      <div class="menu-header">Seller Menu</div>
-      <ul class="menu-list">
-        <li><a href="#" aria-current="page"><span>Vehicle Management</span><span>›</span></a></li>
-        <li><a href="#"><span>Messages</span><span>›</span></a></li>
-        <li><a href="#"><span>Account Settings</span><span>›</span></a></li>
-      </ul>
-    </aside>
-
-    <main class="main-content">
+    <main class="main-content" style="width: 100%;">
       
+      <section class="platform-stats" aria-label="Platform Statistics">
+        <div class="stat-box">
+          <h3>Total Completed Orders</h3>
+          <div class="stat-number" id="statOrders" data-target="15420">10</div>
+        </div>
+        <div class="stat-box">
+          <h3>Vehicles on Sale</h3>
+          <div class="stat-number" id="statVehicles" data-target="8350">5</div>
+        </div>
+      </section>
+
+      <section class="promo-slogan">
+        <h2>Find your perfect match. Sell your car faster.</h2>
+        <p>Premium cars, verified sellers, seamless experience. [Placeholder for future updates]</p>
+      </section>
+
       <div class="dashboard-header">
         <div class="section-header" style="margin-bottom: 0;">
           <h2><div class="section-bar"></div> Vehicle Management</h2>
@@ -57,7 +64,7 @@
       <form id="searchForm" class="dashboard-toolbar" novalidate>
         <div class="search-wrapper">
           <label for="vehicleSearch" class="sr-only">Search Vehicles</label>
-          <input type="text" id="vehicleSearch" placeholder="Search brand or model..." aria-describedby="searchError">
+          <input type="text" id="vehicleSearch" placeholder="Search brand, model, colour or location..." aria-describedby="searchError">
           <button type="submit" class="btn btn-secondary btn-sm">Search</button>
         </div>
         <span id="searchError" class="error-text" aria-live="polite"></span>
@@ -66,8 +73,15 @@
       <div id="vehicleGrid" class="vehicle-grid" aria-live="polite" aria-label="List of your vehicles">
         </div>
 
+      <div class="other-sellers-link">
+        <p>Want to see cars from other sellers? <a href="search.html">Click here to search</a></p>
+      </div>
+
     </main>
   </div>
+
+/* Modified part end */
+
 
   <script src="../js/seller-dashboard.js"></script>
 </body>
