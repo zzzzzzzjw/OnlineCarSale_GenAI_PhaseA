@@ -103,6 +103,7 @@
   color: var(--secondary);
   font-weight: 800;
   margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .vehicle-meta {
@@ -124,7 +125,7 @@
 }
 
 .btn-action {
-  padding: 0.5rem 0; /* Slightly taller for better touch target */
+  padding: 0.6rem 0; /* Slightly taller for better touch target */
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -135,8 +136,17 @@
   width: 100%;  /* Force delete button to span full width */
 }
 
-.btn-delete { background: #fff1f0; color: #dc3545; border: 1px solid #ffccc7;}
-.btn-delete:hover { background: #dc3545; color: var(--white); }
+.btn-show-more { 
+  background: var(--white); 
+  color: var(--primary); 
+  border: 1px solid var(--gray);
+}
+
+.btn-show-more:hover { 
+  background: var(--secondary); 
+  color: var(--white); 
+  border-color: var(--secondary);
+}
 
 /* Modified part end */
 
@@ -160,7 +170,6 @@
   display: flex;
   flex-direction: column;
   transition: var(--transition);
-  cursor: pointer;
 }
 
 /* Added Styles for Platform Statistics */
