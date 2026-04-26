@@ -2,22 +2,43 @@
   Reuses CSS variables from base.css (--primary, --secondary, --white, --shadow-md, etc.)
 */
 
-.register-page {
+/* Modified part start */
+
+/* Apply full-screen fixed background image to the body */
+body {
+  background: url('../images/seller-register+login/seller-background.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container.main-layout {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  padding: 2rem 0;
+}
+
+.register-page {
+  width: 100%;
+  display: flex;
+  padding: 3rem 0;
 }
 
 .registration-card {
-  background-color: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  padding: 3rem;
+  margin: auto; 
+  
   width: 100%;
   max-width: 800px;
+  padding: 3rem;
+  
+  /* Frosted Glass (Glassmorphism) Effect */
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  
+  box-shadow: var(--shadow-xl); 
+  border-radius: var(--radius);
 }
+
+/* Modified part end */
 
 .registration-header {
   text-align: center;
@@ -103,18 +124,27 @@
   max-width: 300px;
 }
 
-/* Responsive Breakpoints */
+/* Modified part start */
 
-/* Laptop (992px - 1199px) is handled gracefully by the max-width and grid above */
-
-/* Tablet (768px - 991px) & Mobile */
+/* Tablet (768px - 991px) */
 @media (max-width: 991px) {
   .registration-card {
-    padding: 2rem;
+    padding: 2.5rem 2rem;
   }
-  
   .form-grid {
     grid-template-columns: 1fr; /* Switch to 1 column for smaller screens */
     gap: 1.5rem;
   }
 }
+
+/* Mobile (max 767px) */
+@media (max-width: 767px) {
+  .register-page {
+    padding: 1.5rem 0;
+  }
+  .registration-card {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* Modified part end */
