@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AutoElite 专业在线汽车销售平台">
-    <title>AutoElite | 专业汽车销售平台</title>
+    <meta name="description" content="AutoElite - Professional Online Car Sales Platform">
+    <title>AutoElite | Professional Car Sales</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -12,280 +12,280 @@
     <script src="../js/main.js" defer></script>
 </head>
 <body>
-    <!-- 顶部信息栏 -->
+    <!-- Top Info Bar -->
     <div class="top-bar">
         <div class="container">
-            <span>📞 客服热线: 400-123-4567</span>
+            <span>📞 Hotline: 400-123-4567</span>
             <div class="top-links">
                 <a href="mailto:support@autoelite.com">✉ support@autoelite.com</a>
             </div>
         </div>
     </div>
 
-    <!-- 主导航 -->
-    <header class="site-header">
+    <!-- Global Navigation Bar -->
+    <nav class="global-nav">
         <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <img src="../images/logo.png" alt="AutoElite">
-                </a>
-                
-                <div class="search-box">
-                    <input type="text" placeholder="搜索您想要的车型...">
-                    <button type="submit">🔍</button>
-                </div>
-
-                <div class="nav-actions">
-                    <a href="login.html" class="nav-item">
-                        <span>👤</span>
-                        <span>登录/注册</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span>⭐</span>
-                        <span>收藏</span>
-                    </a>
-                    <a href="#" class="nav-item cart">
-                        <span>🛒</span>
-                        <span>购物车</span>
-                        <span class="badge">0</span>
-                    </a>
-                </div>
-            </nav>
+            <a href="index.html" class="logo">
+                <img src="../images/logo.png" alt="AutoElite Logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">🏠 Home</a></li>
+                <li><a href="seller.html" class="nav-link">👨‍💼 Seller</a></li>
+                <li><a href="search.html" class="nav-link">🔍 Search</a></li>
+                <li><a href="profile.html" class="nav-link">👤 Profile</a></li>
+                <li><a href="login.html" class="nav-link">🔐 Login & Registration</a></li>
+                <li><a href="about.html" class="nav-link">ℹ️ About Us</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <!-- 主内容区 -->
+        <!-- Main Content Area -->
         <div class="container">
             <div class="main-layout">
-                <!-- 左侧分类菜单 -->
+                <!-- Left Category Menu -->
                 <aside class="category-menu">
                     <div class="menu-header">
                         <span>☰</span>
-                        <span>汽车分类</span>
+                        <span>Car Categories</span>
                     </div>
                     <ul class="menu-list">
-                        <li><a href="#">轿车 <span>›</span></a></li>
+                        <li><a href="#">Sedan <span>›</span></a></li>
                         <li><a href="#">SUV <span>›</span></a></li>
-                        <li><a href="#">跑车 <span>›</span></a></li>
-                        <li><a href="#">新能源车 <span>›</span></a></li>
+                        <li><a href="#">Sports Car <span>›</span></a></li>
+                        <li><a href="#">New Energy <span>›</span></a></li>
                         <li><a href="#">MPV <span>›</span></a></li>
-                        <li><a href="#">越野车 <span>›</span></a></li>
-                        <li><a href="#">豪华车 <span>›</span></a></li>
-                        <li><a href="#">二手车 <span>›</span></a></li>
+                        <li><a href="#">Off-road <span>›</span></a></li>
+                        <li><a href="#">Luxury <span>›</span></a></li>
+                        <li><a href="#">Used Cars <span>›</span></a></li>
                     </ul>
                 </aside>
 
-                <!-- 右侧内容 -->
+                <!-- Right Content -->
                 <div class="main-content">
-                    <!-- 轮播图 -->
-                    <section class="hero-carousel">
+                    <!-- Hero Carousel -->
+                    <section class="hero-carousel" aria-label="Featured Cars Carousel">
                         <div class="carousel-container">
                             <div class="carousel-track" id="carouselTrack">
                                 <div class="carousel-slide active" style="background-image: url('../images/cars/hero-1.jpg');">
                                     <div class="slide-content">
-                                        <span class="tag">限时特惠</span>
-                                        <h2>豪华跑车系列</h2>
-                                        <p>顶级性能，极致驾驶体验，尊享奢华生活</p>
-                                        <button class="btn-primary">查看详情</button>
+                                        <span class="tag">Limited Offer</span>
+                                        <h2>Luxury Sports Series</h2>
+                                        <p>Top performance, ultimate driving experience, enjoy a luxurious life</p>
+                                        <button class="btn-primary" aria-label="View luxury sports cars details">View Details</button>
                                     </div>
                                 </div>
                                 <div class="carousel-slide" style="background-image: url('../images/cars/hero-2.jpg');">
                                     <div class="slide-content">
-                                        <span class="tag">新品上市</span>
-                                        <h2>新能源轿车</h2>
-                                        <p>环保节能，智能科技，未来出行新选择</p>
-                                        <button class="btn-primary">查看详情</button>
+                                        <span class="tag">New Arrival</span>
+                                        <h2>New Energy Sedan</h2>
+                                        <p>Eco-friendly, smart technology, future travel choice</p>
+                                        <button class="btn-primary" aria-label="View new energy cars details">View Details</button>
                                     </div>
                                 </div>
                                 <div class="carousel-slide" style="background-image: url('../images/cars/hero-3.jpg');">
                                     <div class="slide-content">
-                                        <span class="tag">热销车型</span>
-                                        <h2>家庭SUV</h2>
-                                        <p>宽敞舒适，安全可靠，家庭出行首选</p>
-                                        <button class="btn-primary">查看详情</button>
+                                        <span class="tag">Best Seller</span>
+                                        <h2>Family SUV</h2>
+                                        <p>Spacious, comfortable, safe, family travel first choice</p>
+                                        <button class="btn-primary" aria-label="View family SUV details">View Details</button>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-                            <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-                            <div class="carousel-dots"></div>
+                            <button class="carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Previous slide">❮</button>
+                            <button class="carousel-btn next" onclick="moveCarousel(1)" aria-label="Next slide">❯</button>
+                            <div class="carousel-dots" role="tablist" aria-label="Carousel navigation"></div>
                         </div>
                     </section>
                 </div>
             </div>
 
-            <!-- 服务特色 -->
-            <section class="features-grid">
+            <!-- Service Features -->
+            <section class="features-grid" aria-label="Our Services">
                 <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
-                    <h3>全国配送</h3>
-                    <p>订单成交即可享受免费配送服务</p>
+                    <div class="feature-icon" aria-hidden="true">🚚</div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>Free delivery service upon successful order</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>无忧退换</h3>
-                    <p>7天无理由退货，30天质量问题换货</p>
+                    <div class="feature-icon" aria-hidden="true">🔄</div>
+                    <h3>Worry-free Returns</h3>
+                    <p>7-day no reason return, 30-day quality exchange</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🛡</div>
-                    <h3>正品保证</h3>
-                    <p>官方授权，100% 正品保障，假一赔十</p>
+                    <div class="feature-icon" aria-hidden="true">🛡</div>
+                    <h3>Authentic Guarantee</h3>
+                    <p>Official authorization, 100% genuine, 10x compensation for fakes</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎧</div>
-                    <h3>专属客服</h3>
-                    <p>24/7 在线客服，为您解答任何疑问</p>
+                    <div class="feature-icon" aria-hidden="true">🎧</div>
+                    <h3>Dedicated Support</h3>
+                    <p>24/7 online customer service for any inquiries</p>
                 </div>
             </section>
 
-            <!-- 新车上架 -->
-            <section class="products-section">
+            <!-- New Arrivals Section -->
+            <section class="products-section" aria-label="New Arrivals">
                 <div class="section-header">
-                    <h2><span class="section-bar"></span>新车上架</h2>
-                    <a href="#" class="view-all">查看全部 →</a>
+                    <h2><span class="section-bar"></span>New Arrivals</h2>
+                    <a href="search.html" class="view-all">View All →</a>
                 </div>
                 <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-1.jpg');">
-                            <span class="product-tag">智能轿车</span>
+                    <!-- Product Card 1 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-1.jpg');" role="img" aria-label="Mercedes-Benz S-Class 2024">
+                            <span class="product-tag">Smart Sedan</span>
                         </div>
                         <div class="product-info">
-                            <h3>奔驰 S级 2024款</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Mercedes-Benz S-Class 2024</h3>
+                            <div class="product-rating" aria-label="Rating: 4.8 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                                 <span>(4.8)</span>
                             </div>
-                            <div class="product-price">¥1,968,000</div>
+                            <div class="product-price" aria-label="Price: 1,968,000 Yuan">¥1,968,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-2.jpg');">
-                            <span class="product-tag">豪华SUV</span>
+                    <!-- Product Card 2 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-2.jpg');" role="img" aria-label="BMW X7 2024">
+                            <span class="product-tag">Luxury SUV</span>
                         </div>
                         <div class="product-info">
-                            <h3>宝马 X7 2024款</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>BMW X7 2024</h3>
+                            <div class="product-rating" aria-label="Rating: 4.9 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                                 <span>(4.9)</span>
                             </div>
-                            <div class="product-price">¥1,370,000</div>
+                            <div class="product-price" aria-label="Price: 1,370,000 Yuan">¥1,370,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-3.jpg');">
-                            <span class="product-tag">跑车</span>
+                    <!-- Product Card 3 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-3.jpg');" role="img" aria-label="Porsche 911 Turbo S">
+                            <span class="product-tag">Sports Car</span>
                         </div>
                         <div class="product-info">
-                            <h3>保时捷 911 Turbo S</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Porsche 911 Turbo S</h3>
+                            <div class="product-rating" aria-label="Rating: 5.0 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                                 <span>(5.0)</span>
                             </div>
-                            <div class="product-price">¥2,359,000</div>
+                            <div class="product-price" aria-label="Price: 2,359,000 Yuan">¥2,359,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-4.jpg');">
-                            <span class="product-tag">新能源</span>
+                    <!-- Product Card 4 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-4.jpg');" role="img" aria-label="Tesla Model S Plaid">
+                            <span class="product-tag">New Energy</span>
                         </div>
                         <div class="product-info">
-                            <h3>特斯拉 Model S Plaid</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Tesla Model S Plaid</h3>
+                            <div class="product-rating" aria-label="Rating: 4.7 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                                 <span>(4.7)</span>
                             </div>
-                            <div class="product-price">¥1,299,000</div>
+                            <div class="product-price" aria-label="Price: 1,299,000 Yuan">¥1,299,000</div>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- 热销排行 -->
-            <section class="products-section">
+            <!-- Best Sellers Section -->
+            <section class="products-section" aria-label="Best Sellers">
                 <div class="section-header">
-                    <h2><span class="section-bar"></span>热销排行</h2>
-                    <a href="#" class="view-all">查看全部 →</a>
+                    <h2><span class="section-bar"></span>Best Sellers</h2>
+                    <a href="search.html" class="view-all">View All →</a>
                 </div>
                 <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-5.jpg');">
-                            <span class="product-tag">豪华轿车</span>
+                    <!-- Product Card 5 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-5.jpg');" role="img" aria-label="Audi A8L 2024">
+                            <span class="product-tag">Luxury Sedan</span>
                         </div>
                         <div class="product-info">
-                            <h3>奥迪 A8L 2024款</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Audi A8L 2024</h3>
+                            <div class="product-rating" aria-label="Rating: 4.8 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                <span>(4.8)</span>
                             </div>
-                            <div class="product-price">¥1,380,000</div>
+                            <div class="product-price" aria-label="Price: 1,380,000 Yuan">¥1,380,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-6.jpg');">
+                    <!-- Product Card 6 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-6.jpg');" role="img" aria-label="Land Rover Range Rover 2024">
                             <span class="product-tag">SUV</span>
                         </div>
                         <div class="product-info">
-                            <h3>路虎 揽胜 2024款</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Land Rover Range Rover 2024</h3>
+                            <div class="product-rating" aria-label="Rating: 4.9 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                <span>(4.9)</span>
                             </div>
-                            <div class="product-price">¥1,862,000</div>
+                            <div class="product-price" aria-label="Price: 1,862,000 Yuan">¥1,862,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-7.jpg');">
-                            <span class="product-tag">跑车</span>
+                    <!-- Product Card 7 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-7.jpg');" role="img" aria-label="Ferrari F8 Tributo">
+                            <span class="product-tag">Sports Car</span>
                         </div>
                         <div class="product-info">
-                            <h3>法拉利 F8 Tributo</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>Ferrari F8 Tributo</h3>
+                            <div class="product-rating" aria-label="Rating: 5.0 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                <span>(5.0)</span>
                             </div>
-                            <div class="product-price">¥3,203,000</div>
+                            <div class="product-price" aria-label="Price: 3,203,000 Yuan">¥3,203,000</div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="product-card">
-                        <div class="product-image" style="background-image: url('../images/cars/car-8.jpg');">
-                            <span class="product-tag">新能源车</span>
+                    <!-- Product Card 8 -->
+                    <article class="product-card">
+                        <div class="product-image" style="background-image: url('../images/cars/car-8.jpg');" role="img" aria-label="BYD Han EV 2024">
+                            <span class="product-tag">New Energy</span>
                         </div>
                         <div class="product-info">
-                            <h3>比亚迪 汉EV 2024款</h3>
-                            <div class="product-rating">
-                                <span>⭐⭐⭐⭐⭐</span>
+                            <h3>BYD Han EV 2024</h3>
+                            <div class="product-rating" aria-label="Rating: 4.6 out of 5 stars">
+                                <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                                <span>(4.6)</span>
                             </div>
-                            <div class="product-price">¥278,500</div>
+                            <div class="product-price" aria-label="Price: 278,500 Yuan">¥278,500</div>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | 课程设计项目</p>
+            <p>&copy; 2026 AutoElite Online Car Sale. All Rights Reserved. | Course Design Project</p>
         </div>
     </footer>
 
+    <!-- Carousel JavaScript -->
     <script>
-        // 轮播图功能
+        // Carousel functionality
         let currentIndex = 0;
         let autoSlideInterval;
         const slides = document.querySelectorAll('.carousel-slide');
         const track = document.getElementById('carouselTrack');
         const dotsContainer = document.querySelector('.carousel-dots');
 
-        // 创建指示点
+        // Create indicator dots
         slides.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.classList.add('dot');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', () => goToSlide(i));
             dotsContainer.appendChild(dot);
@@ -295,7 +295,10 @@
 
         function updateSlide() {
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+                d.setAttribute('aria-selected', i === currentIndex);
+            });
         }
 
         function goToSlide(index) {
@@ -324,12 +327,12 @@
             startAutoSlide();
         }
 
-        // 鼠标悬停控制
+        // Hover controls
         const carouselContainer = document.querySelector('.carousel-container');
         carouselContainer.addEventListener('mouseenter', stopAutoSlide);
         carouselContainer.addEventListener('mouseleave', startAutoSlide);
 
-        // 启动自动轮播
+        // Initialize
         startAutoSlide();
     </script>
 </body>

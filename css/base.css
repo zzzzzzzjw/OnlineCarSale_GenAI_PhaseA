@@ -1,4 +1,4 @@
-/* CSS 变量系统 - 黑色主题 + 深黄色辅色 */
+/* CSS Variable System - Dark Theme + Deep Yellow Accent */
 :root {
   --primary: #1a1a1a;
   --primary-dark: #0d0d0d;
@@ -24,12 +24,14 @@
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Reset & Box Sizing */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* HTML & Body Base */
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -44,6 +46,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Container Utility */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -51,6 +54,7 @@ body {
   padding: 0 2rem;
 }
 
+/* Global Link & List Styles */
 a {
   text-decoration: none;
   color: inherit;
