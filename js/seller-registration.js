@@ -83,6 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
       globalError.style.color = '#28a745'; // Success green
       globalError.textContent = 'Registration successful! Proceeding...';
       // Implement actual submission logic here (e.g., fetch API)
+    
+      /* Modified part start */
+
+      // Trigger success alert and redirect to login page
+      alert('Registration successful! Redirecting to the login page...');
+      window.location.href = 'login.html';
+      
+      /* Modified part end */
+    
     } else {
       globalError.style.color = '#dc3545'; // Error red
       globalError.textContent = 'Please correct the errors in the form before submitting.';

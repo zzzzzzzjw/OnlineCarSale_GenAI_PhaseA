@@ -2,22 +2,40 @@
   Reuses CSS variables from base.css (--primary, --secondary, --white, --shadow-md, etc.)
 */
 
+
+/* Modified part start */
+
+/* Apply full-screen fixed background image to the body */
+body {
+  background: url('../images/seller-register+login/seller-background.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .login-wrapper {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 0;
+  padding: 3rem 0; /* Provides top/bottom safe space to prevent clipping on small screens */
 }
 
 .login-card {
-  background-color: var(--white);
+  /* Absolute safe centering within the flex wrapper */
+  margin: auto;
+  
+  /* Frosted Glass (Glassmorphism) Effect matching the registration page */
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-xl); /* Reusing the deep shadow variable from base.css */
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  
   padding: 3rem 2.5rem;
   width: 100%;
   max-width: 450px;
 }
+
+/* Modified part end */
+
 
 .login-header {
   text-align: center;
@@ -108,3 +126,19 @@
 .btn-full {
   width: 100%;
 }
+
+
+/* Modified part start */
+
+/* Responsive Breakpoints */
+@media (max-width: 767px) {
+  .login-wrapper {
+    padding: 1.5rem 0; /* Reduce page vertical padding on mobile */
+  }
+  
+  .login-card {
+    padding: 2rem 1.5rem; /* Shrink inner padding to give inputs more breathing room */
+  }
+}
+
+/* Modified part end */
