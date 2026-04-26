@@ -2,6 +2,10 @@
    Reusing variables from base.css and structure from layout.css
 */
 
+.container.main-layout {
+  margin: 2rem auto !important; 
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -82,23 +86,6 @@
   object-fit: cover;
 }
 
-.status-tag {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--white);
-  box-shadow: var(--shadow-sm);
-  z-index: 10;
-}
-
-.status-listed { background-color: #28a745; }
-.status-unlisted { background-color: var(--gray); }
-.status-sold { background-color: var(--secondary); }
-
 .vehicle-info {
   padding: 1.2rem;
   flex: 1;
@@ -126,34 +113,32 @@
   margin-bottom: 0.5rem;
 }
 
+
+/* Modified part start */
+
 .vehicle-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  display: flex; /* Changed from grid to flex since there is only one button */
   padding: 1rem 1.2rem;
   background-color: var(--light);
   border-top: 1px solid var(--gray-light);
 }
 
 .btn-action {
-  padding: 0.4rem 0;
+  padding: 0.5rem 0; /* Slightly taller for better touch target */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   transition: var(--transition);
   text-align: center;
+  width: 100%;  /* Force delete button to span full width */
 }
 
-.btn-edit { background: var(--white); color: var(--primary); border: 1px solid var(--gray); }
-.btn-edit:hover { border-color: var(--primary); }
-
-.btn-toggle { background: var(--primary); color: var(--white); }
-.btn-toggle:hover { background: var(--primary-dark); }
-
-.btn-delete { background: #fff1f0; color: #dc3545; grid-column: span 2; border: 1px solid #ffccc7;}
+.btn-delete { background: #fff1f0; color: #dc3545; border: 1px solid #ffccc7;}
 .btn-delete:hover { background: #dc3545; color: var(--white); }
+
+/* Modified part end */
 
 
 /* Modified part start */

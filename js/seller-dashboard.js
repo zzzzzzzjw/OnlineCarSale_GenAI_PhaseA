@@ -1,12 +1,12 @@
 /* Modified part start */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mock Data for Vehicles (Updated with requested placeholder details)
+  // Mock Data for Vehicles
   let vehicles = [
-    { id: 1, brand: 'Tesla', model: 'Model 3 Long Range', year: 2022, colour: 'Pearl White', location: 'New York, NY', price: '$45,000', listedDate: '2023-10-01', views: 1240, status: 'Listed', image: '[ Vehicle Image 1 Placeholder ]' },
-    { id: 2, brand: 'BMW', model: 'X5 xDrive40i', year: 2021, colour: 'Carbon Black', location: 'Los Angeles, CA', price: '$62,000', listedDate: '2023-09-15', views: 890, status: 'Unlisted', image: '[ Vehicle Image 2 Placeholder ]' },
-    { id: 3, brand: 'Audi', model: 'A6 Premium Plus', year: 2023, colour: 'Glacier White', location: 'Chicago, IL', price: '$55,000', listedDate: '2023-08-22', views: 3200, status: 'Sold', image: '[ Vehicle Image 3 Placeholder ]' },
-    { id: 4, brand: 'Mercedes', model: 'C-Class C300', year: 2020, colour: 'Obsidian Black', location: 'Miami, FL', price: '$38,000', listedDate: '2023-11-05', views: 450, status: 'Listed', image: '[ Vehicle Image 4 Placeholder ]' }
+    { id: 1, brand: 'Tesla', model: 'Model 3 Long Range', year: 2022, colour: 'Pearl White', location: 'New York, NY', price: '$45,000', image: '[ Vehicle Image 1 Placeholder ]' },
+    { id: 2, brand: 'BMW', model: 'X5 xDrive40i', year: 2021, colour: 'Carbon Black', location: 'Los Angeles, CA', price: '$62,000', image: '[ Vehicle Image 2 Placeholder ]' },
+    { id: 3, brand: 'Audi', model: 'A6 Premium Plus', year: 2023, colour: 'Glacier White', location: 'Chicago, IL', price: '$55,000', image: '[ Vehicle Image 3 Placeholder ]' },
+    { id: 4, brand: 'Mercedes', model: 'C-Class C300', year: 2020, colour: 'Obsidian Black', location: 'Miami, FL', price: '$38,000', image: '[ Vehicle Image 4 Placeholder ]' }
   ];
 
   const vehicleGrid = document.getElementById('vehicleGrid');
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      // Easing calculation for smooth deceleration
       const easeOutQuart = 1 - Math.pow(1 - progress, 4); 
       element.innerHTML = Math.floor(easeOutQuart * (end - start) + start).toLocaleString();
       if (progress < 1) {
@@ -41,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Renders the vehicle grid securely based on the provided data array.
+   * Completely stripped of status, views, edit, and toggle logic.
    */
   const renderVehicles = (data) => {
     vehicleGrid.innerHTML = ''; 
@@ -51,17 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     data.forEach(vehicle => {
-      const statusClass = vehicle.status === 'Listed' ? 'status-listed' : 
-                          vehicle.status === 'Unlisted' ? 'status-unlisted' : 'status-sold';
-      
-      const toggleText = vehicle.status === 'Listed' ? 'Unlist' : 'List';
-      const toggleDisabled = vehicle.status === 'Sold' ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : '';
-
-      // Emojis removed, detail properties added
       const cardHTML = `
         <article class="vehicle-card" data-id="${vehicle.id}" tabindex="0" role="button" aria-label="View details for ${vehicle.brand} ${vehicle.model}">
           <div class="vehicle-image-container">
-            <span class="status-tag ${statusClass}" aria-label="Status: ${vehicle.status}">${vehicle.status}</span>
             <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#999; font-size:0.9rem;">
               ${vehicle.image}
             </div>
@@ -70,21 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="vehicle-title">${vehicle.brand} ${vehicle.model}</h3>
             <div class="vehicle-price">${vehicle.price}</div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; font-size: 0.85rem; color: var(--gray-dark); margin-bottom: 1rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; font-size: 0.85rem; color: var(--gray-dark); margin-bottom: 0.5rem;">
               <span>Year: ${vehicle.year}</span>
               <span>Colour: ${vehicle.colour}</span>
               <span style="grid-column: span 2;">Location: ${vehicle.location}</span>
             </div>
-
-            <div class="vehicle-meta">
-              <span>Listed: ${vehicle.listedDate}</span>
-              <span>Views: ${vehicle.views}</span>
-            </div>
           </div>
           <div class="vehicle-actions">
-            <button class="btn-action btn-edit" aria-label="Edit ${vehicle.model}">Edit</button>
-            <button class="btn-action btn-toggle" ${toggleDisabled} aria-label="${toggleText} ${vehicle.model}">${toggleText}</button>
-            <button class="btn-action btn-delete" aria-label="Delete ${vehicle.model}">Delete</button>
+            <button class="btn-action btn-delete" aria-label="Delete ${vehicle.model}">Delete Listing</button>
           </div>
         </article>
       `;
@@ -127,22 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const id = parseInt(card.getAttribute('data-id'));
     const vehicle = vehicles.find(v => v.id === id);
 
-    // Differentiate between clicking action buttons vs clicking the card itself
+    // Only two actions remain: Delete button, or redirecting to detail page
     if (e.target.classList.contains('btn-delete')) {
       e.stopPropagation(); // Prevent card redirect
       if (confirm(`Are you sure you want to delete ${vehicle.model}?`)) {
-        vehicles = vehicles.filter(v => v.id !== id);
+        const index = vehicles.findIndex(v => v.id === id);
+        if (index > -1) {
+            vehicles.splice(index, 1);
+        }
         renderVehicles(vehicles);
       }
-    } else if (e.target.classList.contains('btn-toggle') && vehicle.status !== 'Sold') {
-      e.stopPropagation(); // Prevent card redirect
-      vehicle.status = vehicle.status === 'Listed' ? 'Unlisted' : 'Listed';
-      renderVehicles(vehicles);
-    } else if (e.target.classList.contains('btn-edit')) {
-      e.stopPropagation(); // Prevent card redirect
-      alert(`Redirecting to edit page for ${vehicle.model}...`);
     } else {
-      // If the click is anywhere else on the card, trigger redirect
+      // Click anywhere else on the card redirects
       window.location.href = `vehicle-detail.html?id=${id}`;
     }
   });
