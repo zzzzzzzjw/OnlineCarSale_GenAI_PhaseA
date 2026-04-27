@@ -20,6 +20,7 @@
     let filteredCars = [];
     let currentPage = 1;
     let debounceTimer = null;
+    let showOnlyFavourites = false; 
     const ITEMS_PER_PAGE = 6;
 
     const modelSearch = document.getElementById('modelSearch');
@@ -32,6 +33,7 @@
     const sortSelect = document.getElementById('sortSelect');
     const searchBtn = document.getElementById('searchBtn');
     const resetBtn = document.getElementById('resetFilters');
+    const favouriteFilterBtn = document.getElementById('favouriteFilterBtn');  
 
     function loadCars() {
         const formattedDefault = DEFAULT_CARS.map(car => ({
@@ -78,7 +80,7 @@
         if (fuel && fuel !== '') params.set('fuel', fuel);
         if (transmission && transmission !== '') params.set('transmission', transmission);
         if (sort && sort !== 'newest') params.set('sort', sort);
-
+        if (showOnlyFavourites) params.set('favourites', 'true');  
         const newUrl = params.toString() ? window.location.pathname + '?' + params.toString() : window.location.pathname;
         window.history.pushState({}, '', newUrl);
     }
@@ -93,6 +95,13 @@
         if (params.has('fuel')) fuelFilter.value = params.get('fuel');
         if (params.has('transmission')) transmissionFilter.value = params.get('transmission');
         if (params.has('sort')) sortSelect.value = params.get('sort');
+        if (params.has('favourites') && params.get('favourites') === 'true') {
+            showOnlyFavourites = true;
+            if (favouriteFilterBtn) {
+                favouriteFilterBtn.classList.add('active');
+                favouriteFilterBtn.innerHTML = '❤️ Favourites (ON)';
+            }
+        }
     }
 
     function hasSearchCriteria() {
@@ -102,7 +111,8 @@
                (minPrice.value !== '' && minPrice.value !== '0') || 
                (maxPrice.value !== '' && maxPrice.value !== '') ||
                fuelFilter.value !== '' ||
-               transmissionFilter.value !== '';
+               transmissionFilter.value !== '' ||
+               showOnlyFavourites;  
     }
 
     function applyFilters() {
@@ -113,8 +123,13 @@
         const max = parseFloat(maxPrice.value) || Infinity;
         const fuel = fuelFilter.value;
         const transmission = transmissionFilter.value;
+        
+        const savedCars = JSON.parse(localStorage.getItem('buyer_saved_cars') || '[]');  
 
         filteredCars = allCars.filter(car => {
+            if (showOnlyFavourites && !savedCars.includes(car.id)) {
+                return false;
+            }
             if (modelKeyword) {
                 const searchable = (car.title + ' ' + car.model + ' ' + car.brand).toLowerCase();
                 if (!searchable.includes(modelKeyword)) return false;
@@ -213,6 +228,9 @@
                     btn.textContent = '🤍';
                     btn.classList.remove('saved');
                     showToast('Removed from favorites');
+                    if (showOnlyFavourites) {
+                        applyFilters();
+                    }
                 } else {
                     saved.push(carId);
                     btn.textContent = '❤️';
@@ -256,6 +274,15 @@
         fuelFilter.value = '';
         transmissionFilter.value = '';
         sortSelect.value = 'newest';
+
+        if (showOnlyFavourites) {
+            showOnlyFavourites = false;
+            if (favouriteFilterBtn) {
+                favouriteFilterBtn.classList.remove('active');
+                favouriteFilterBtn.innerHTML = '❤️ Favourites';
+            }
+        }
+        
         filteredCars = [...allCars];
         applySort();
         updateURL();
@@ -269,6 +296,19 @@
         setTimeout(() => toast.remove(), 2000);
     }
 
+    if (favouriteFilterBtn) {
+        favouriteFilterBtn.addEventListener('click', () => {
+            showOnlyFavourites = !showOnlyFavourites;
+            if (showOnlyFavourites) {
+                favouriteFilterBtn.classList.add('active');
+                favouriteFilterBtn.innerHTML = '❤️ Favourites (ON)';
+            } else {
+                favouriteFilterBtn.classList.remove('active');
+                favouriteFilterBtn.innerHTML = '❤️ Favourites';
+            }
+            applyFilters();
+        });
+    }
 
     brandFilter.addEventListener('change', applyFilters);
     minPrice.addEventListener('input', applyFilters);
@@ -277,7 +317,6 @@
     transmissionFilter.addEventListener('change', applyFilters);
     sortSelect.addEventListener('change', applyFilters);
     
-
     searchBtn.addEventListener('click', () => {
         if (!hasSearchCriteria()) {
             showToast('Please enter at least one search term');

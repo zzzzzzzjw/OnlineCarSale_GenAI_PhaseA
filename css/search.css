@@ -1,5 +1,3 @@
-/* Search Page - 独有样式 */
-
 .search-hero {
     background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
     padding: 3rem 0;
@@ -321,4 +319,34 @@
     .search-hero {
         padding: 2rem 0;
     }
+}
+.search-box .btn-primary {
+    background: var(--secondary) !important;
+    box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3) !important;
+}
+
+.search-box .btn-primary:hover {
+    background: var(--secondary-dark) !important;
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4) !important;
+}
+.filter-favourite-btn {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+}
+
+.filter-favourite-btn.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: white;
+}
+
+.filter-favourite-btn:hover {
+    border-color: var(--secondary);
 }
