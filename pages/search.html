@@ -13,25 +13,32 @@
 </head>
 <body>
 
-<header class="site-header">
-    <div class="container">
-        <div class="navbar">
-            <a href="index.html" class="logo">
-                <img src="../images/logo.png" alt="AutoHub" class="logo-img">
-                <span>Auto<span style="color: var(--primary);">Hub</span></span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="dashboard.html">Seller</a>
-                <a href="search.html">Find Cars</a>
-                <a href="favourites.html">Favourite</a>
-                <a href="contact.html">Contact</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Login / Register</a>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>📞 Hotline: 400-123-4567</span>
+            <div class="top-links">
+                <a href="mailto:support@autoelite.com">✉ support@autoelite.com</a>
             </div>
         </div>
     </div>
-</header>
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-nav">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="../images/logo.png" alt="AutoHub Logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="seller.html" class="nav-link">Seller</a></li>
+                <li><a href="search.html" class="nav-link">Search</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+                <li><a href="login.html" class="nav-link">Login & Registration</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
     <main>
         <section class="search-hero">
             <div class="container">
@@ -88,6 +95,10 @@
                     </div>
                     <div class="filter-group">
                         <button class="reset-btn" id="resetFilters">Reset</button>
+                    </div>
+                    <div class="filter-group">
+                    <label>&nbsp;</label>
+                        <button id="favouriteFilterBtn" class="filter-favourite-btn">❤️ Favourites</button>
                     </div>
                 </div>
             </div>
