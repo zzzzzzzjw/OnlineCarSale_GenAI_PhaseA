@@ -1,0 +1,296 @@
+/* Seller Dashboard Specific Styles 
+   Reusing variables from base.css and structure from layout.css
+*/
+
+.container.main-layout {
+  margin: 2rem auto !important; 
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.dashboard-toolbar {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-wrapper {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.search-wrapper input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-wrapper input:focus {
+  border-color: var(--secondary);
+}
+
+.search-wrapper input.is-invalid {
+  border-color: #dc3545;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.vehicle-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.vehicle-image-container {
+  position: relative;
+  aspect-ratio: 16/10;
+  background-color: var(--gray-light);
+  overflow: hidden;
+}
+
+.vehicle-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-info {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.vehicle-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-price {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.vehicle-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Modified part start */
+
+.vehicle-actions {
+  display: flex; /* Changed from grid to flex since there is only one button */
+  padding: 1rem 1.2rem;
+  background-color: var(--light);
+  border-top: 1px solid var(--gray-light);
+}
+
+.btn-action {
+  padding: 0.6rem 0; /* Slightly taller for better touch target */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  text-align: center;
+  width: 100%;  /* Force delete button to span full width */
+}
+
+.btn-show-more { 
+  background: var(--white); 
+  color: var(--primary); 
+  border: 1px solid var(--gray);
+}
+
+.btn-show-more:hover { 
+  background: var(--secondary); 
+  color: var(--white); 
+  border-color: var(--secondary);
+}
+
+/* Modified part end */
+
+
+/* Modified part start */
+/* Vehicle Grid Layout - Updated to 4 columns */
+
+.vehicle-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Desktop default: 3 columns */
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.vehicle-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-light);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+/* Added Styles for Platform Statistics */
+.platform-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-light);
+}
+
+.stat-box {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid var(--gray-light);
+}
+
+.stat-box:last-child {
+  border-right: none;
+}
+
+.stat-box h3 {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  color: var(--primary);
+  font-weight: 800;
+  font-family: var(--font-sans);
+}
+
+/* Added Styles for Promotional Slogan */
+.promo-slogan {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 1rem 2rem;
+}
+
+.promo-slogan h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.promo-slogan p {
+  color: var(--gray);
+  font-size: 1.1rem;
+}
+
+/* Added Styles for Bottom Redirection Link */
+.other-sellers-link {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--gray-light);
+}
+
+.other-sellers-link p {
+  color: var(--gray-dark);
+  font-size: 1.05rem;
+}
+
+.other-sellers-link a {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.other-sellers-link a:hover {
+  color: var(--secondary-dark);
+  text-decoration: underline;
+}
+
+/* Updated Responsive Breakpoints for 4 columns and new sections */
+@media (max-width: 1199px) { /* Laptop */
+  .vehicle-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) { /* Tablet */
+  .main-layout {
+    flex-direction: column;
+  }
+  .vehicle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .platform-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .stat-box {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 1.5rem;
+  }
+  .stat-box:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) { /* Mobile */
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .promo-slogan h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Modified part end */
