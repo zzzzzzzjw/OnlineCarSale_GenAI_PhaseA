@@ -1,5 +1,3 @@
-/* Add Car Page - 独有样式 */
-
 .form-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -221,7 +219,6 @@
         width: 100%;
     }
 }
-/* add-car.html 深色主题样式 */
 .add-car-page {
     background-color: #1a1a1a;
 }
