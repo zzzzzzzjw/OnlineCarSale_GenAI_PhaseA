@@ -1,11 +1,19 @@
 (function() {
-    const DEFAULT_CARS = [
+        const DEFAULT_CARS = [
         { id: 'car_1', title: '2022 BMW X3 xDrive30i', brand: 'BMW', model: 'X3', year: 2022, price: 38.8, mileage: 3.2, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Blue', city: 'Shanghai', image: '../images/cars/BMW-blue.jpg', createdAt: '2025-01-15' },
         { id: 'car_2', title: '2023 Tesla Model 3', brand: 'Tesla', model: 'Model 3', year: 2023, price: 22.5, mileage: 1.5, transmission: 'Automatic', fuelType: 'Electric', color: 'Silver', city: 'Beijing', image: '../images/cars/TESLA_S.png', createdAt: '2025-02-01' },
         { id: 'car_3', title: '2021 Mercedes-Benz GLC', brand: 'Mercedes-Benz', model: 'GLC', year: 2021, price: 28.9, mileage: 4.8, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Grey', city: 'Shenzhen', image: '../images/cars/SUV-grey.jpg', createdAt: '2025-01-20' },
         { id: 'car_4', title: '2022 Audi Q5', brand: 'Audi', model: 'Q5', year: 2022, price: 35.6, mileage: 2.5, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Red', city: 'Guangzhou', image: '../images/cars/SUV-red.jpg', createdAt: '2025-01-10' },
         { id: 'car_5', title: '2020 BMW 3 Series', brand: 'BMW', model: '3 Series', year: 2020, price: 16.8, mileage: 5.2, transmission: 'Automatic', fuelType: 'Gasoline', color: 'White', city: 'Hangzhou', image: '../images/cars/BMW-white.jpg', createdAt: '2025-01-25' },
-        { id: 'car_6', title: '2023 Xiaomi SU7', brand: 'Xiaomi', model: 'SU7', year: 2023, price: 21.6, mileage: 0.8, transmission: 'Automatic', fuelType: 'Electric', color: 'Grey', city: 'Shanghai', image: '../images/cars/xiaomi-grey.jpg', createdAt: '2025-02-10' }
+        { id: 'car_6', title: '2023 Xiaomi SU7', brand: 'Xiaomi', model: 'SU7', year: 2023, price: 21.6, mileage: 0.8, transmission: 'Automatic', fuelType: 'Electric', color: 'Grey', city: 'Shanghai', image: '../images/cars/xiaomi-grey.jpg', createdAt: '2025-02-10' },
+        { id: 'car_7', title: '2024 Mercedes-Benz S-Class', brand: 'Mercedes-Benz', model: 'S-Class', year: 2024, price: 196.8, mileage: 0.5, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Black', city: 'Beijing', image: '../images/cars/car-1.jpg', createdAt: '2025-01-15' },
+        { id: 'car_8', title: '2024 BMW X7', brand: 'BMW', model: 'X7', year: 2024, price: 137.0, mileage: 0.32, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Silver', city: 'Shanghai', image: '../images/cars/hero-3.jpg', createdAt: '2025-01-18' },
+        { id: 'car_9', title: '2024 Porsche 911 Turbo S', brand: 'Porsche', model: '911 Turbo S', year: 2024, price: 235.9, mileage: 0.15, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Silver', city: 'Guangzhou', image: '../images/cars/car-3.jpg', createdAt: '2025-01-20' },
+        { id: 'car_10', title: '2024 Tesla Model S Plaid', brand: 'Tesla', model: 'Model S Plaid', year: 2024, price: 129.9, mileage: 0.08, transmission: 'Automatic', fuelType: 'Electric', color: 'Blue', city: 'Shenzhen', image: '../images/cars/car-4.jpg', createdAt: '2025-01-22' },
+        { id: 'car_11', title: '2024 Audi A8L', brand: 'Audi', model: 'A8L', year: 2024, price: 138.0, mileage: 0.41, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Yellow', city: 'Chengdu', image: '../images/cars/car-5.jpg', createdAt: '2025-01-25' },
+        { id: 'car_12', title: '2024 Land Rover Range Rover', brand: 'Land Rover', model: 'Range Rover', year: 2024, price: 186.2, mileage: 0.28, transmission: 'Automatic', fuelType: 'Gasoline', color: 'White', city: 'Chongqing', image: '../images/cars/hero-5.jpg', createdAt: '2025-01-28' },
+        { id: 'car_13', title: '2024 Ferrari F8 Tributo', brand: 'Ferrari', model: 'F8 Tributo', year: 2024, price: 320.3, mileage: 0.05, transmission: 'Automatic', fuelType: 'Gasoline', color: 'Red', city: 'Shenzhen', image: '../images/cars/hero-1.jpg', createdAt: '2025-02-01' },
+        { id: 'car_14', title: '2024 BYD Han EV', brand: 'BYD', model: 'Han EV', year: 2024, price: 27.85, mileage: 0.12, transmission: 'Automatic', fuelType: 'Electric', color: 'Blue', city: 'Changsha', image: '../images/cars/hero-2.jpg', createdAt: '2025-02-05' }
     ];
 
     let allCars = [];
