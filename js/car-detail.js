@@ -112,8 +112,13 @@
                 </div>
             </div>
             <div class="info-section">
+            
                 <h1 class="car-title">${car.title}</h1>
-                <div class="car-price">¥${car.price}万  <small>RMB</small></div>
+                
+                <div class="car-price" style="color: var(--secondary); text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">
+                    ¥${Math.round(car.price * 10000).toLocaleString('en-US')} <small style="color: var(--gray); font-size: 0.5em; text-shadow: none;">RMB</small>
+                </div>
+                
                 <div class="specs-grid">
                     <div class="spec-item"><span class="spec-label">Brand</span><span class="spec-value">${car.brand || 'N/A'}</span></div>
                     <div class="spec-item"><span class="spec-label">Model</span><span class="spec-value">${car.model || 'N/A'}</span></div>
@@ -207,13 +212,17 @@
             if (car.image) return car.image;
             return '../images/cars/SUV-grey.jpg';
         }
-        
+
         relatedGrid.innerHTML = related.map(car => `
             <div class="related-card">
                 <img src="${getRelatedImage(car)}" alt="${car.title}" onerror="this.src='../images/cars/SUV-grey.jpg'">
                 <div class="related-card-info">
                     <div class="related-card-title">${car.title}</div>
-                    <div class="related-card-price">¥${car.price}万</div>
+                    
+                    <div class="related-card-price" style="color: var(--secondary); font-weight: 700; margin-bottom: 0.5rem;">
+                        ¥${Math.round(car.price * 10000).toLocaleString('en-US')}
+                    </div>
+                    
                     <a href="car-detail.html?id=${car.id}" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">View Details</a>
                 </div>
             </div>
