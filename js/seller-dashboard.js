@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial Render
   renderVehicles(vehicles);
 
+  /* Modified part start */
+
   // Search/Filter Event Listener checking new fields
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -95,14 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
     searchError.textContent = '';
 
     const filtered = vehicles.filter(v => 
-      v.brand.toLowerCase().includes(query.toLowerCase()) || 
-      v.model.toLowerCase().includes(query.toLowerCase()) ||
-      v.colour.toLowerCase().includes(query.toLowerCase()) ||
-      v.location.toLowerCase().includes(query.toLowerCase()) ||
-      v.year.toString().includes(query)
+      (v.brand && v.brand.toLowerCase().includes(query.toLowerCase())) || 
+      (v.model && v.model.toLowerCase().includes(query.toLowerCase())) ||
+      (v.color && v.color.toLowerCase().includes(query.toLowerCase())) ||
+      (v.city && v.city.toLowerCase().includes(query.toLowerCase())) ||
+      (v.year && v.year.toString().includes(query))
     );
     renderVehicles(filtered);
   });
+
+  /* Modified part end */
+
 
   // Event Delegation for action buttons and detail page redirection
   vehicleGrid.addEventListener('click', (e) => {
@@ -111,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (e.target.classList.contains('btn-show-more')) {
       const id = card.getAttribute('data-id'); 
-      window.location.href = `vehicle-detail.html?id=${id}`;
+      window.location.href = `car-detail.html?id=${id}`;
     }
   });
 });

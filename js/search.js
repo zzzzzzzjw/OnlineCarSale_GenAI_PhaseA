@@ -195,12 +195,14 @@
             return '../images/cars/SUV-grey.jpg';
         };
         
+        /* Modified part start */
+        
         container.innerHTML = pageCars.map(car => `
             <div class="car-card">
                 <img src="${imagePath(car)}" class="car-image" onerror="this.src='../images/cars/SUV-grey.jpg'">
                 <div class="car-info">
                     <h3 class="car-title">${car.title}</h3>
-                    <div class="car-price">¥${car.price}万</div>
+                    <div class="car-price">¥${Math.round(car.price * 10000).toLocaleString('en-US')}</div>
                     <div class="car-details">
                         <span>📅 ${car.year}</span>
                         <span>📷 ${car.mileage || 0}万 km</span>
@@ -217,6 +219,8 @@
                 </div>
             </div>
         `).join('');
+
+        /* Modified part end */
         
         document.querySelectorAll('.save-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {

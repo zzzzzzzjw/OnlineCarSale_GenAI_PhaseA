@@ -8,16 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const validationRule = /^[A-Za-z0-9]{6,}$/;
   const formatErrorMsg = 'Must contain at least 6 alphanumeric characters.';
 
-  // Mock database for checking existing accounts
-  const mockDatabase = {
-    'seller123': 'securePass1',
-    'adminUser': 'adminPass'
-  };
-
-  /**
-   * Validates a single input field against the regex.
-   * Updates DOM to show/hide error messages and manage ARIA states.
-   */
   const validateField = (inputEl, errorEl) => {
     const val = inputEl.value.trim();
     if (!validationRule.test(val)) {
@@ -33,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Immediate validation on blur
   usernameInput.addEventListener('blur', () => {
     validateField(usernameInput, document.getElementById('usernameError'));
     globalError.textContent = ''; 
@@ -44,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     globalError.textContent = '';
   });
 
-  // Final validation and mock authentication on Submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     globalError.textContent = '';
@@ -52,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isUsernameValid = validateField(usernameInput, document.getElementById('usernameError'));
     const isPasswordValid = validateField(passwordInput, document.getElementById('passwordError'));
 
-    // Requirement: directly throw an error alert if format validation fails
     if (!isUsernameValid || !isPasswordValid) {
       alert("Validation Error: Please ensure all fields contain at least 6 alphanumeric characters.");
       return;
@@ -61,17 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameVal = usernameInput.value.trim();
     const passwordVal = passwordInput.value.trim();
 
-    // Check account existence and credentials
-    if (!mockDatabase.hasOwnProperty(usernameVal)) {
+    // Fetch existing users from LocalStorage
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const matchedUser = users.find(u => u.username === usernameVal);
+
+    // Business Logic: Login Authentication
+    if (!matchedUser) {
       globalError.style.color = '#dc3545';
       globalError.textContent = 'Account does not exist. Please sign up first.';
-    } else if (mockDatabase[usernameVal] !== passwordVal) {
+    } else if (matchedUser.password !== passwordVal) {
       globalError.style.color = '#dc3545';
       globalError.textContent = 'Incorrect password. Please try again.';
     } else {
-      globalError.style.color = '#28a745'; // Success green
+      // Success State Retention
+      globalError.style.color = '#28a745'; 
       globalError.textContent = 'Login successful! Redirecting...';
-      // Proceed with actual login logic...
+      
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('currentUser', usernameVal);
+      
+      // Default redirect to index.html post-login
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1000);
     }
   });
 });
