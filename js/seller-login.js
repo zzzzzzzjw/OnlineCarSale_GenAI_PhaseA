@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const matchedUser = users.find(u => u.username === usernameVal);
 
-    // Business Logic: Login Authentication
+
+    /* Modified part start */
+
     if (!matchedUser) {
       globalError.style.color = '#dc3545';
       globalError.textContent = 'Account does not exist. Please sign up first.';
@@ -64,13 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
       globalError.style.color = '#28a745'; 
       globalError.textContent = 'Login successful! Redirecting...';
       
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('currentUser', usernameVal);
+      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('currentUser', usernameVal);
       
       // Default redirect to index.html post-login
       setTimeout(() => {
         window.location.href = 'index.html';
       }, 1000);
     }
+
+    /* Modified part end */
+
+    
   });
 });

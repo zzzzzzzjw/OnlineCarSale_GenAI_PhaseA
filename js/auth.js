@@ -1,7 +1,7 @@
 (function() {
     const protectedRoutes = ['add-car.html', 'seller-dashboard.html', 'seller.html'];
     const currentPath = window.location.pathname.toLowerCase();
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
 
     const isProtected = protectedRoutes.some(route => currentPath.includes(route));
@@ -21,8 +21,8 @@
                     link.href = '#';
                     link.addEventListener('click', (e) => {
                         e.preventDefault();
-                        localStorage.setItem('isLoggedIn', 'false');
-                        localStorage.removeItem('currentUser');
+                        sessionStorage.setItem('isLoggedIn', 'false');
+                        sessionStorage.removeItem('currentUser');
                         alert('You have been logged out.');
                         window.location.href = 'index.html'; 
                     });
