@@ -1,0 +1,458 @@
+/* 
+  layout.css 
+  - Main layout structure, navigation, sidebar, and content area.
+  - Works with base.css (variables) and components.css (buttons/cards).
+  - All comments in English.
+*/
+
+/* --- Top Info Bar --- */
+.top-bar {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.6rem 0;
+  font-size: 0.875rem;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-links a {
+  margin-left: 2rem;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.top-links a:hover {
+  opacity: 1;
+  color: var(--secondary-light);
+}
+
+/* --- Global Navigation Bar (Merged Header & Nav) --- */
+.global-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-light);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.global-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+}
+
+.global-nav .logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: var(--secondary);
+  background: var(--light);
+}
+
+.nav-link.active {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+  font-weight: 600;
+}
+
+/* Active Dot Indicator */
+.nav-link.active::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--secondary);
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+/* --- Main Layout (Sidebar + Content) --- */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+/* Left Category Menu */
+.category-menu {
+  width: 240px;
+  min-width: 240px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.menu-header {
+  background: var(--primary);
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-list li a {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--gray-light);
+  color: var(--dark);
+  transition: var(--transition);
+}
+
+.menu-list li a:hover {
+  background: var(--light);
+  color: var(--secondary);
+  padding-left: 2rem;
+}
+
+.menu-list li a span:last-child {
+  color: var(--gray);
+}
+
+/* Right Content Area */
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Hero Carousel --- */
+.hero-carousel {
+  margin-bottom: 3rem;
+}
+
+.carousel-container {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  aspect-ratio: 16/6;
+  background: #000;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Gradient overlay for text readability */
+.carousel-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  transform: translateY(-50%);
+  color: var(--white);
+  max-width: 600px;
+  z-index: 2;
+}
+
+.slide-content .tag {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.slide-content h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.slide-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.2rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn.prev { left: 1.5rem; }
+.carousel-btn.next { right: 1.5rem; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--secondary);
+  transform: scale(1.2);
+}
+
+/* --- Feature Cards --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* --- Product Section --- */
+.products-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gray-light);
+  padding-bottom: 1rem;
+}
+
+.section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.section-bar {
+  width: 5px;
+  height: 24px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.view-all {
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.view-all:hover {
+  color: var(--secondary-dark);
+  text-decoration: underline;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
+}
+
+.product-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.product-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--primary);
+  color: var(--white);
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  text-align: center;
+  border-top: 4px solid var(--secondary);
+}
+
+.site-footer p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* --- Iteration 2 Fix: Preserve hover effects when wrapping cards in <a> --- */
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.product-card-link:hover .product-card {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-light);
+}
