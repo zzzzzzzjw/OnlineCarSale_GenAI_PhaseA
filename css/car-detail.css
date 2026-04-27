@@ -1,13 +1,9 @@
-/* Car Detail Page Styles */
-
-/* Detail Container */
 .detail-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1.5rem;
 }
 
-/* Breadcrumb */
 .breadcrumb {
     margin-bottom: 1.5rem;
     font-size: 0.85rem;
@@ -236,7 +232,7 @@
         height: 60px;
     }
 }
-/* 补充样式 */
+
 .logo-img {
     height: 40px;
     width: auto;
